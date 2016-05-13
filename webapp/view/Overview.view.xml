@@ -100,63 +100,6 @@
                     </content>
                 </Panel>
             </l:Grid>
-            <!--
-            <VBox>
-                <HBox>
-                    <Panel backgroundDesign="Transparent">
-                        <headerToolbar>
-                            <Toolbar design="Transparent">
-                                <Title text="App Airlock" titleStyle="H2" />
-                                <ToolbarSpacer />
-                                <Title text="Hatch 10.2-A" />
-                            </Toolbar>
-                        </headerToolbar>
-                        <content>
-                            <FlexBox width="6rem" height="6rem">
-                                <mmc:RadialMicroChart percentage="63" valueColor="#e7921e" />
-                            </FlexBox>
-                        </content>
-                    </Panel>
-                </HBox>
-                <HBox width="100%">
-                    <Panel backgroundDesign="Transparent">
-                        <headerToolbar>
-                            <Toolbar design="Transparent">
-                                <Title text="Voice" titleStyle="H2" />
-                                <ToolbarSpacer />
-                                <Title text="Play/Record" />
-                            </Toolbar>
-                        </headerToolbar>
-                        <content>
-                            <FlexBox width="6rem" height="6rem">
-                                <mmc:RadialMicroChart percentage="45" valueColor="#e7921e" />
-                            </FlexBox>
-                        </content>
-                    </Panel>
-                    <Panel backgroundDesign="Transparent">
-                        <headerToolbar>
-                            <Toolbar design="Transparent">
-                                <Title text="Crew Data" titleStyle="H2" />
-                                <ToolbarSpacer />
-                                <Title text="Johanssen" />
-                            </Toolbar>
-                        </headerToolbar>
-                        <content>
-                            <FlexBox width="6rem" height="6rem">
-                                <mc:RadialMicroChart percentage="63" valueColor="#e7921e" />
-                            </FlexBox>
-                        </content>
-                    </Panel>
-                </HBox>                
-            </VBox>
-            
-            <HBox class="sapUiMediumMarginBegin" alignItems="Center" xjustifyContent="SpaceBetween" justifyContent="Center">
-                <Button icon="sap-icon://present" text="Anwesenheit" iconDensityAware="false" 
-                    press="onNavTo" data:route="overview" />
-                <Button class="sapUiTinyMarginBegin" icon="sap-icon://loan" text="Projektmanagement"
-                    press="onNavTo" data:route="sidecontent" />
-            </HBox>
-            -->
         </content>
     </Page>
 </mvc:View>
