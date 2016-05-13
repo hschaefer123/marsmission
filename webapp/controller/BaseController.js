@@ -14,13 +14,13 @@ sap.ui.define([
 		getRouter: function() {
 			return this.getOwnerComponent().getRouter();
 		},
-		
-        getComponent : function() {
-            return sap.ui.core.Component.getOwnerComponentFor(
-                this.getView()
-            );
-        },
-        
+
+		getComponent: function() {
+			return sap.ui.core.Component.getOwnerComponentFor(
+				this.getView()
+			);
+		},
+
 		/**
 		 * Convenience method for getting the view model by name in every controller of the application.
 		 * @public
@@ -52,6 +52,31 @@ sap.ui.define([
 		},
 
 		/**
+		 * Convenience method for getting the resource bundle text.
+		 * @public
+		 * @param {string} sKey  the property to read
+		 * @param {string[]} aArgs? List of parameters which should replace the place holders "{n}" (n is the index) in the found locale-specific string value.
+		 * @returns {sap.ui.core.routing.Router} the router for this component
+		 */
+		getText: function(sKey, aArgs) {
+			return this.getResourceBundle().getText(sKey, aArgs);
+		},
+
+		/**
+		 * @param {function} Constructor for the element
+		 * @returns object|null
+		 */
+		findParentControl: function(oClass) {
+			var node = this.getView().getParent();
+
+			while (node !== null && !(node instanceof oClass)) {
+				node = node.getParent();
+			}
+
+			return node;
+		},
+
+		/**
 		 * Event handler  for navigating back.
 		 * It checks if there is a history entry. If yes, history.go(-1) will happen.
 		 * If not, it will replace the current entry of the browser history with the master route.
@@ -69,7 +94,7 @@ sap.ui.define([
 				this.getRouter().navTo("master", {}, bReplace);
 			}
 		},
-		
+
 		/**
 		 * Event handler for navigating to defined route.
 		 * You have to define a custom data route name property
@@ -80,56 +105,56 @@ sap.ui.define([
 		 * @returns {undefined} undefined
 		 * @public
 		 */
-        onNavTo : function(oEvent) {
-            var oItem = oEvent.getParameter("listItem") || oEvent.getSource(),
-                sRouteName = oItem.data("routeName") || oItem.data("route"),
-                oRouteConfig = oItem.data("routeConfig") || {},
-                oConfig = oItem.data("config") || {},
-                sTitle = oItem.data("title"),
-                sUrl = oItem.data("url") || undefined;
-                
-            // title detection
-            if (!sTitle) {
-                if (typeof oItem.getTitle === "function") {
-                    sTitle = oItem.getTitle();
-                } else if (typeof oItem.getHeader === "function") {
-                    sTitle = oItem.getHeader();
-                }
-            }
-                
-            // special iframe handling
-            if (sUrl) {
-                var sTarget = (sRouteName) ? "onpremise" : "window";
-                oConfig.page = "/" + sTarget + "/" + sUrl;
-                oRouteConfig.src = encodeURIComponent(sUrl);
-                oRouteConfig.title = encodeURIComponent(sTitle);
-            }
-                
-            // route handling
-            if (sRouteName) {
-                // nav to with history 
-                this.getRouter().navTo(sRouteName, oRouteConfig, false);
-            }
-            
-        },
-		
+		onNavTo: function(oEvent) {
+			var oItem = oEvent.getParameter("listItem") || oEvent.getSource(),
+				sRouteName = oItem.data("routeName") || oItem.data("route"),
+				oRouteConfig = oItem.data("routeConfig") || {},
+				oConfig = oItem.data("config") || {},
+				sTitle = oItem.data("title"),
+				sUrl = oItem.data("url") || undefined;
+
+			// title detection
+			if (!sTitle) {
+				if (typeof oItem.getTitle === "function") {
+					sTitle = oItem.getTitle();
+				} else if (typeof oItem.getHeader === "function") {
+					sTitle = oItem.getHeader();
+				}
+			}
+
+			// special iframe handling
+			if (sUrl) {
+				var sTarget = (sRouteName) ? "onpremise" : "window";
+				oConfig.page = "/" + sTarget + "/" + sUrl;
+				oRouteConfig.src = encodeURIComponent(sUrl);
+				oRouteConfig.title = encodeURIComponent(sTitle);
+			}
+
+			// route handling
+			if (sRouteName) {
+				// nav to with history 
+				this.getRouter().navTo(sRouteName, oRouteConfig, false);
+			}
+
+		},
+
 		/**
 		 * Convenience method for accessing the event bus in every controller of the application.
 		 * @param {boolean} bGlobal if true return core global EventBus else component EventBus
 		 * @public
 		 * @returns {sap.ui.core.EventBus} the event bus for this component
 		 */
-        getEventBus : function(bGlobal) {
-            if (bGlobal) {
-                // global event bus
-                return sap.ui.getCore().getEventBus();
-            } else {
-                // component event bus
-                var sComponentId = sap.ui.core.Component.getOwnerIdFor(this.getView());
-                return sap.ui.component(sComponentId).getEventBus();    
-                //return this.getOwnerComponent().getEventBus();
-            }
-        }		
+		getEventBus: function(bGlobal) {
+			if (bGlobal) {
+				// global event bus
+				return sap.ui.getCore().getEventBus();
+			} else {
+				// component event bus
+				var sComponentId = sap.ui.core.Component.getOwnerIdFor(this.getView());
+				return sap.ui.component(sComponentId).getEventBus();
+				//return this.getOwnerComponent().getEventBus();
+			}
+		}
 
 	});
 

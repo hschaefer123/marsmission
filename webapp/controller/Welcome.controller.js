@@ -5,16 +5,16 @@ sap.ui.define([
 	"use strict";
 
 	return BaseController.extend("de.uniorg.martian.controller.Welcome", {
-	    
-        onInit : function() {
+
+		onInit: function() {
 			// Control state model
 			var oViewModel = new JSONModel();
-			this.setModel(oViewModel, "ui");     
-        },
-        
-        onWarp : function() {
-            hyperspace = 1;
-        }
+			this.setModel(oViewModel, "ui");
+		},
+
+		onWarp: function() {
+			hyperspace = 1;
+		}
 
 	});
 
