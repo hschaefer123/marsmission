@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html class="no-js">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-title" content="Mission Cockpit">
+		<meta name="apple-mobile-web-app-capable" content="yes">  
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"/>
+		
+		<title>Mission Cockpit</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/loader.css">
+		
+		<!--
+        <script src="//cdn.ravenjs.com/1.1.19/jquery,native/raven.min.js"></script>
+        <script>
+        Raven.config('http://a36f1d59030d45719fc68cc26521b1ed@sentry.uniorg.de/16', {
+        	release: '0.0.1',
+            // we highly recommend restricting exceptions to a domain in order to filter out clutter
+            whitelistUrls: [
+                'marshud-p1940953245trial.dispatcher.hanatrial.ondemand.com', 
+                'webidetesting0853694-p1940953245trial.dispatcher.hanatrial.ondemand.com'
+            ]
+        }).install();
+        // eine einfache Nachricht aufnehmen
+        //Raven.captureMessage('hello world2!')
+        
+        // eine Ausnahme auffangen
+        /*
+        try {
+            errorThrowingCode();
+        } catch(err) {
+            Raven.captureException(err);
+        } 
+        */
+        </script>
+        -->
+        
+		<script src="preboot.js"></script>
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-oninit="main();"
+			data-sap-ui-appCacheBuster="./"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-frameOptions="deny"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-logLevel="ERROR"
+			data-sap-ui-resourceroots='{"de.uniorg.martian": "./"}'>
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+        <div id="root" style="visibility:hidden;"></div>
+        <div id="uoUiSplashScreen">
+            <div class="uoUiSSLoader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>    
+        </div>
+	</body>
+</html>

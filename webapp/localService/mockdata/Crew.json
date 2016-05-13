@@ -1,0 +1,79 @@
+[{
+	"Id": "JOHANNSEN",
+	"Name": "Beth Johanssen",
+	"AvatarSrc": "mimes/crew/johanssen.png",
+	"Total": 10,
+	"Fraction": 4.232,
+	"BP": 32.6,
+	"PR": 11.8,
+	"TP": 34.0,
+	"__metadata": {
+		"uri": "Crew('JOHANNSEN')",
+		"type": "MARS_SRV.CrewMember"
+	}
+}, {
+	"Id": "LEWIS",
+	"Name": "CDR. Melissa Lewis",
+	"AvatarSrc": "mimes/crew/lewis.png",
+	"Total": 10,
+	"Fraction": 8.204,
+	"BP": 34.2,
+	"PR": 12.8,
+	"TP": 33.7,
+	"__metadata": {
+		"uri": "Crew('LEWIS')",
+		"type": "MARS_SRV.CrewMember"
+	}
+}, {
+	"Id": "VOGEL",
+	"Name": "Alex Vogel",
+	"AvatarSrc": "mimes/crew/vogel.png",
+	"Total": 10,
+	"Fraction": 6.478,
+	"BP": 31.4,
+	"PR": 12.4,
+	"TP": 34.0,
+	"__metadata": {
+		"uri": "Crew('VOGEL')",
+		"type": "MARS_SRV.CrewMember"
+	}
+}, {
+	"Id": "WATNEY",
+	"Name": "Mark Watney",
+	"AvatarSrc": "mimes/crew/watney.png",
+	"Total": 10,
+	"Fraction": 3.264,
+	"BP": 30.2,
+	"PR": 13.5,
+	"TP": 35.0,
+	"__metadata": {
+		"uri": "Crew('WATNEY')",
+		"type": "MARS_SRV.CrewMember"
+	}
+}, {
+	"Id": "BECK",
+	"Name": "DR. Christopher Beck",
+	"AvatarSrc": "mimes/crew/beck.png",
+	"Total": 10,
+	"Fraction":4.774,
+	"BP": 32.0,
+	"PR": 14.2,
+	"TP": 35.6,
+	"__metadata": {
+		"uri": "Crew('BECK')",
+		"type": "MARS_SRV.CrewMember"
+	}
+}, {
+	"Id": "MARTINEZ",
+	"Name": "MJR. Rick Martinez",
+	"AvatarSrc": "mimes/crew/martinez.png",
+	"Total": 10,
+	"Fraction": 7.696,
+	"BP": 30.7,
+	"PR": 13.5,
+	"TP": 34.7,
+	"__metadata": {
+		"uri": "Crew('MARTINEZ')",
+		"type": "MARS_SRV.CrewMember"
+	}
+}]

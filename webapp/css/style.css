@@ -1,0 +1,211 @@
+/* 
+https://www.google.com/fonts/#
+@import url(https://fonts.googleapis.com/css?family=Electrolize); 
+*/
+@font-face {
+  font-family: 'HUD';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Electrolize'), local('Electrolize-Regular'), url(https://fonts.gstatic.com/s/electrolize/v5/DDy9sgU2U7S4xAwH5thnJ44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+*:not(.sapUiIcon):not(.sapMTCInner) {
+    font-family: 'HUD', sans-serif ! important;
+}
+
+/* global */
+.sapUiBody {
+    color: #ffffff;
+    xfont-family: Arial,Helvetica,sans-serif;
+}
+
+/* SVG */
+.uoUiSvgSpaceIcon svg g { 
+    stroke: #e7921e; 
+    /*fill: #e7921e;*/
+}
+
+/* SCROLLBAR */
+.sap-desktop ::-webkit-scrollbar {
+    width: 10px;  /* for vertical scrollbars */
+    height: 10px; /* for horizontal scrollbars */
+}
+.sap-desktop ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    background: black;
+}
+.sap-desktop ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    background: #a2b9cc;
+}
+
+/* disabled branding bar */
+.sapMPageHeader::before {
+    border-top: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* translucent global header backgrounds */
+.sapMPageHeader.sapMTB,
+.sapMIBar.sapMHeader-CTX {
+    background: none;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* fix remove transparent padding from headbar */ 
+.appHeadBar.sapMTB-Transparent-CTX.sapMTB,
+.footerBar.sapMTB-Transparent-CTX.sapMTB {
+    padding-left: 0;
+}
+
+.sapUiLocalBusyIndicator {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.sapMLIB,
+.sapMTB {
+    border-bottom: 0;
+}
+
+.sapMObjectNumber {
+    color: #ffffff;
+}
+
+.gray {
+    color: #777777;
+}
+
+/* app header light border effect */
+.sapMPageHeader.sapMTB.appHeadBar {
+    -moz-border-image: -moz-linear-gradient(to right, transparent, #a9b0c2, transparent);
+    -webkit-border-image: -webkit-linear-gradient(to right, transparent, #a9b0c2, transparent);
+    border-image: linear-gradient(to right, transparent, #a9b0c2, transparent);
+    border-image-slice: 1;
+    border-bottom: 1px solid transparent;
+    border-top: 0;
+}
+
+/* audiovis */
+.hud-title {
+
+}
+.audiovis {
+    position: absolute;
+    top: 0.2rem;
+    right: 0;
+    /*
+    left: 50%;
+    margin-left: -6rem !important;
+    margin-right: auto !important;
+    */
+}
+
+/* avatar round corner */
+.hud-avatar,
+.crew .sapMImg {
+    border-radius: 50%;
+}
+
+.hud-title.sapMTitle {
+    background: -webkit-linear-gradient(white, #e7921e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-variant: small-caps;
+}
+
+/* TITLE */
+.sapMTB-Transparent-CTX .sapMTitle,
+.sapMTitle {
+    color: #e7921e;
+    text-shadow: none;
+    xtext-transform: uppercase;
+}
+
+/* PANEL */
+.sapMPanel,
+.sapMList {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0.5rem;
+}
+.sapMPanel {
+    xborder: 1px solid #cccccc;
+}
+.sapMPanel .sapMIBar {
+    background-color: rgba(0,0,0,0.4);
+    border-bottom: 0;
+}
+.sapMPanel .sapMTitleTB span {
+    text-transform: uppercase;
+}
+
+.sapUiBlockCellTitle {
+    color: #e7921e;
+    font-size: 16px;
+}
+.sapUiBlockCellCenteredContent .sapUiBlockCellTitle {
+    color: #e7921e;
+    font-size: 14px;
+}
+
+/* button */
+.sapMToggleBtnPressed, 
+.sapMIBar-CTX .sapMToggleBtnPressed, 
+div.sapMBtnInner.sapMBtnEmphasized,
+.sapMBtnInner.sapMToggleBtnPressed,
+.sapMTB-Transparent-CTX .sapMBtnInner.sapMToggleBtnPressed {
+    background-color: rgba(231, 146, 30, 0.5);
+    border-color: rgba(231, 146, 30, 0.8);
+}
+.sapMBtnInner {
+    text-shadow: none;
+}
+
+/* slider */
+.sapMSliderProgress {
+    background: #e7921e;
+}
+
+/* uo.svg.radialMicroChart */
+.uoSvgUiRMCFont {
+    fill: white;   
+}
+.uoSvgUiRMCNeutralTextColor {
+    fill: white;
+}
+.uoSvgUiRMCPathIncomplete {
+    stroke: #e5e5e5; 
+}
+.uoSvgUiRMCHCBIncompleteBorder {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 0.25rem;
+}
+
+/* toggle button */
+.sapMToggleBtnUnstyled .sapMBtnInner {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+/* ARES LOGO */
+.ares-iii {
+    opacity: 0.8;
+    /*
+    -webkit-animation:spin 16s linear infinite;
+    -moz-animation:spin 16s linear infinite;
+    animation:spin 16s linear infinite;
+    */
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+@-moz-keyframes spiny { 50% { -moz-transform: rotateY(90deg); } }
+@-webkit-keyframes spiny { 50% { -webkit-transform: rotateY(90deg); } }
+@keyframes spiny { 50% { -webkit-transform: rotateY(90deg); transform:rotateY(90deg); } }

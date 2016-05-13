@@ -1,0 +1,48 @@
+<mvc:View controllerName="de.uniorg.martian.controller.SideContent"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:mmc="de.uniorg.martian.control"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page id="EmployeePanel" enableScrolling="false">
+        <customHeader>
+            <Toolbar id="EmployeePanelToolbar" design="Transparent">
+                <Image class="uoUiSvgSpaceIcon sapUiTinyMarginBeginEnd" width="2rem" height="2rem" src="mimes/svg/astronaut.svg" densityAware="false" />
+                <Title id="viewModeTitle" text="CREW DATA" titleStyle="H3" />
+                <ToolbarSpacer />
+            </Toolbar>
+        </customHeader>        
+        <content>
+            <List
+                id="list"
+                class="crew"
+                backgroundDesign="Transparent"
+                itemPress="onEmployeeItem"
+                growing="true"
+                growingThreshold="500"
+                xitems="{/Crew}"
+                items="{/}">
+                <CustomListItem>
+                    <HBox class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom" alignItems="Center">
+                        <Image class="uoUiSvgFillColor" width="3rem" height="3rem" src="{AvatarSrc}" densityAware="false" tooltip="image of {Name}" />
+                        <Title class="sapUiTinyMarginBegin" text="{Id}" tooltip="{Name}" >
+                            <layoutData>
+                                <FlexItemData growFactor="1" />
+                            </layoutData>
+                        </Title>
+                        <VBox width="4rem" height="4rem" justifyContent="Center" alignItems="Center">
+                            <mmc:RadialMicroChart total="{Total}" fraction="{Fraction}" valueColor="{= ${Fraction} > 0 ? '#e7921e' : '#f00'}" />
+                            <!--<ObjectNumber number="{Fraction}" textAlign="Center" />-->
+                        </VBox>
+                        <VBox width="4rem">
+                            <ObjectNumber number="{BP}" unit="BP" textAlign="End" />
+                            <ObjectNumber number="{PR}" unit="PR" textAlign="End" />
+                            <ObjectNumber number="{TP}" unit="TP" textAlign="End" />
+                        </VBox>
+                    </HBox>
+                </CustomListItem>                    
+            </List>
+        </content>
+    </Page>
+</mvc:View>

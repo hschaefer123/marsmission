@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html class="no-js">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+		
+		<title>Mockserver Web Audio Bug</title>
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-frameOptions="deny"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"de.uniorg.martian": "./"}'>
+		</script>
+		
+    	<script>
+            sap.ui.getCore().attachInit(function() {
+
+                sap.ui.require([
+                    "sap/ui/core/util/MockServer",
+                    "sap/ui/core/ComponentContainer"
+                ], function (MockServer, ComponentContainer) {
+                    var bUseMock = jQuery.sap.getUriParameters().get("mock") === "true"; 
+                    console.log("bUseMock", bUseMock);
+                    
+                    if (bUseMock) {
+                        var oMock = new sap.ui.core.util.MockServer({rootUri : "webapp/localService/metadata.xml/"});
+                        oMock.simulate("./localService/metadata.xml");
+                        oMock.start();
+                    }
+                    
+                    //load and decode mp3 file 
+                    function loadFile() { 
+                        var req = new XMLHttpRequest(); 
+                        req.open("GET", "media/houston.mp3", true); 
+                        req.responseType = "arraybuffer"; 
+                        req.onload = function() { 
+                            //decode the loaded data 
+                            ctx.decodeAudioData(req.response, function(buffer) { 
+                                buf = buffer; 
+                                play(); 
+                            }); 
+                        }; 
+                        req.send(); 
+                    } 
+                    
+                    //play the loaded file 
+                    function play() { 
+                        //create a source node from the buffer 
+                        var src = ctx.createBufferSource();  
+                        src.buffer = buf; 
+                        //connect to the final output node (the speakers) 
+                        src.connect(ctx.destination); 
+                        //play immediately 
+                        src.start(0); 
+                    } 
+                    
+                    //init the sound system 
+                    function init() { 
+                        try { 
+                            ctx = new webkitAudioContext(); //is there a better API for this? 
+                            loadFile(); 
+                        } catch(e) { 
+                            alert('you need webaudio support'); 
+                        } 
+                    } 
+                    
+                    init();
+                });
+            })
+    	</script>
+	</head>
+	<body class="sapUiBody" id="content"></body>
+</html>

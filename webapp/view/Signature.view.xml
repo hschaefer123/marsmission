@@ -1,0 +1,40 @@
+<mvc:View controllerName="de.uniorg.martian.controller.Signature"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:l="sap.ui.layout"
+    xmlns:mc="de.uniorg.martian.control"
+    xmlns="sap.m">
+    <Page id="page" showHeader="false">
+        <content>
+            <l:Grid defaultSpan="L6 M12 S12" containerQuery="true">
+               <Panel width="auto" class="sapUiTinyMarginTop" backgroundDesign="Transparent">
+                    <headerToolbar>
+                        <Toolbar design="Transparent">
+                            <Title text="Sign Here" titleStyle="H2" />
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://picture" tooltip="Export PNG" press="onExportImage" />
+                            <Button icon="sap-icon://draw-rectangle" tooltip="Export SVG" press="onExportSvg" />
+                            <Button icon="sap-icon://delete" tooltip="Reset Drawing" press="onReset" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <content>
+                        <mc:Signature width="100%" height="8rem" id="signature" />
+                    </content>
+                </Panel>
+                
+                <Panel width="auto" class="sapUiTinyMarginTop" backgroundDesign="Transparent" visible="{= ${ui>/mime}.length > 0}">
+                    <headerToolbar>
+                        <Toolbar design="Transparent">
+                            <Title text="Exported {ui>/mime}" titleStyle="H2" />
+                            <ToolbarSpacer />
+                        </Toolbar>
+                    </headerToolbar>
+                    <content>
+                        <Image width="100%" height="8rem" src="{ui>/image}" />
+                    </content>
+                </Panel>
+            </l:Grid>
+        </content>
+    </Page>
+</mvc:View>

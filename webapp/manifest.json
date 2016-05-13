@@ -1,0 +1,155 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "de.uniorg.martian",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"mainService": {
+				"uri": "/webapp/localService/metadata.xml",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"jsonService": {
+				"uri": "localService/mockdata/Crew.json",
+				"type": "JSON"
+			}
+		},
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "mimes/icons/icon.png",
+			"favIcon": "mimes/icons/icon.png",
+			"phone": "mimes/icons/icon-57.png",
+			"phone@2": "mimes/icons/icon-57-2x.png",
+			"tablet": "mimes/icons/icon-72.png",
+			"tablet@2": "mimes/icons/icon-72-2x.png"
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "de.uniorg.martian.view.App",
+			"type": "XML"
+		},
+		"handleValidation": true,
+		"dependencies": {
+			"minUI5Version": "1.34.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "de.eaton.gpk.i18n.i18n"
+				}
+			},
+			"x": {
+				"dataSource": "mainService",
+				"settings": {
+					"useBatch": true,
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"": {
+				"dataSource": "jsonService"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				},
+				{
+					"uri": "control/css/c3.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"targetsClass": "sap.m.routing.Targets",
+				"viewType": "XML",
+				"viewPath": "de.uniorg.martian.view",
+				"controlId": "rootControl",
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "welcome",
+					"target": "welcome"
+				},
+				{
+					"pattern": "overview",
+					"name": "overview",
+					"target": "overview"
+				},
+				{
+					"pattern": "sidecontent",
+					"name": "sidecontent",
+					"target": "sidecontent"
+				},
+				{
+					"pattern": "signature",
+					"name": "signature",
+					"target": "signature"
+				}
+			],
+			"targets": {
+				"welcome": {
+					"viewName": "Welcome",
+					"viewLevel": 0
+				},
+				"overview": {
+					"viewName": "Overview",
+					"viewLevel": 1
+				},
+				"sidecontent": {
+					"viewName": "SideContent",
+					"viewLevel": 1
+				},
+				"signature": {
+					"viewName": "Signature",
+					"viewLevel": 1
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
