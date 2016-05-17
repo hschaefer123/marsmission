@@ -1,0 +1,78 @@
+<mvc:View controllerName="de.uniorg.martian.controller.MeArea" displayBlock="true"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="meAreaPage" class="uoUiShellPaneContent" enableScrolling="false">
+        <customHeader>
+            <Toolbar id="meAreaToolbar" design="Transparent">
+                <Button
+                    id="meAreaAvatarChangeBtn"
+                    visible="{uis>/Config/eco/user/useAvatar}"
+                    press="onOpenFragmentPopup" 
+                    data:fragmentName=".AvatarActionSheet"
+                    icon="sap-icon://edit"
+                    tooltip="{i18n>Change}"/>
+            </Toolbar>
+        </customHeader>
+        <content>
+            <VBox alignItems="Center">
+                <Image
+                    class="uoUiAvatar sapUiSmallMarginBottom svg-inject"
+                    width="8rem" 
+                    height="8rem" 
+                    src="{
+                        parts: [ 'uis>/Config/ume/avatarSrc', 'uis>/Config/ume/gender', 'app>/uoUiTheme'], 
+                        Xformatter: '.formatter.avatarIcon',
+                        formatter: '.formatter.avatarIconSvg'
+                    }" 
+                    densityAware="false"
+                />
+                <Text 
+                    class="uoUiShellUserHeaderText sapUiTinyMarginBottom"
+                    text="{uis>/Config/ume/fullName}" />
+                <Label 
+                    class="uoUiShellUserSubHeaderText"
+                    text="{uis>/Config/ume/email}" />
+            </VBox>
+            <List  
+                class="sapUiMediumMarginTop sapUiContentPadding"
+                backgroundDesign="Transparent"
+                showSeparators="Inner" >
+                <items>
+                    <!--<GroupHeaderListItem title="{i18n>Notifications}" class="sapUiSmallMarginTop" />-->
+                    <StandardListItem
+                        visible="{uis>/Config/eco/user/useNotifications}"
+                        type="Active" 
+                        icon="sap-icon://notification-2"
+                        title="{i18n>Notifications}"
+                        counter="{uis>/Config/ume/notifications}" />
+                    <StandardListItem 
+                        visible="{uis>/Config/eco/user/useFavorites}"
+                        type="Active" 
+                        icon="sap-icon://favorite"
+                        title="{i18n>Favorites}"
+                        counter="1" />
+                    <StandardListItem 
+                        type="Active" 
+                        visible="{= ${uis>/Config/ume/privileges/app.themeswitcher} === true }"
+                        press="onOpenFragmentPopup" 
+                        data:fragmentName=".AccountSettingsDialog"
+                        icon="sap-icon://settings"
+                        title="{i18n>AccountSettings}" />
+                </items>
+            </List>        
+        </content>
+        <footer>
+            <Toolbar design="Transparent" height="4.7rem">
+                <ToolbarSpacer />
+                <Button 
+                    press="onLogoff"
+                    class="uoUiCircleIconBtn"
+                    icon="sap-icon://log" 
+                    text="{i18n>Logoff}" />
+                <ToolbarSpacer />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

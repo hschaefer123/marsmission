@@ -1,14 +1,14 @@
-<mvc:View controllerName="de.uniorg.martian.controller.Welcome"
-    xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="de.uniorg.martian.controller.OverviewPage"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mc="de.uniorg.martian.control"
     xmlns="sap.m">
-    <Page id="page" showHeader="false" enableScrolling="false">
+    <Page id="page" title="Welcome" showHeader="false" enableScrolling="false">
         <content>
             <FlexBox width="100%" height="100%" justifyContent="Center" alignItems="Center">
                 <VBox justifyContent="Center" alignItems="Center">
-                    <Image class="ares-iii sapUiTinyMarginBottom" width="15rem" height="15rem" src="mimes/ares_iii.png" densityAware="false" />
+                    <Image class="ares-iii sapUiTinyMarginBottom" width="15rem" height="15rem" tooltip="Ares III Logo" src="mimes/ares_iii.png" densityAware="false" />
                     <!--
                     <HBox class="sapUiTinyMarginTopBottom">
                         <Text text="α:{shell>/orientation/alpha}" />
@@ -16,9 +16,9 @@
                         <Text text="γ:{shell>/orientation/gamma}" />
                     </HBox> 
                     -->
-                    <Button id="launchBtn" text="Launch Mission" type="Emphasized" press="onNavTo" app:route="overview" />
-                    <Button id="signatureBtn" text="Sign" type="Emphasized" press="onNavTo" app:route="signature" />
-                    <Button id="warpBtn" text="Warp" type="Emphasized" press="onWarp" />
+                    <Button id="revealBtn" text="Mission Briefing" type="Emphasized" press="onNavTo" app:route="reveal" />
+                    <Button id="launchBtn" text="Overall Status" type="Emphasized" press="onNavTo" app:route="missionstatus" />
+                    <Button id="signatureBtn" text="Signature" type="Emphasized" press="onNavTo" app:route="signature" />
                </VBox>
             </FlexBox>
         </content>

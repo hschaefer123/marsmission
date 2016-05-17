@@ -1,4 +1,4 @@
-<mvc:View controllerName="de.uniorg.martian.controller.Signature"
+<mvc:View controllerName="de.uniorg.martian.controller.demo.Signature"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
     xmlns:html="http://www.w3.org/1999/xhtml"

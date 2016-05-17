@@ -1,0 +1,11 @@
+<mvc:View controllerName="de.uniorg.martian.controller.demo.OverviewPage"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="sap.m">
+    <Page id="page" title="Welcome" showHeader="false" enableScrolling="false">
+        <content>
+            <Text text="OverviewPage..." />
+        </content>
+    </Page>
+</mvc:View>

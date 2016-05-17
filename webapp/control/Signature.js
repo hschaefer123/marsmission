@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/Control",
+	"sap/ui/core/ResizeHandler",
 	"./js/jSignature.min"
-], function(Control) {
+], function(Control, ResizeHandler) {
 	"use strict";
 
 	var Signature = Control.extend("de.uniorg.martian.control.Signature", {
@@ -50,8 +51,8 @@ sap.ui.define([
 
 	Signature.prototype.onAfterRendering = function() {
 		var $DomNode = this.$();
-
-		$DomNode.jSignature({
+		
+		this.$jSignature = $DomNode.jSignature({
 			"width": this.getWidth(), //"ratio",
 			"height": this.getHeight(), //"ratio",
 			"sizeRatio": 6, // only used when height = 'ratio'
@@ -62,46 +63,31 @@ sap.ui.define([
 			"minFatFingerCompensation": -10,
 			"showUndoButton": false
 		});
+		
+		// resize handler
+		this.resizeID = ResizeHandler.register(jQuery.sap.domById(this.getId()), this.onResize.bind(this));
+		
+		this.$DomNode = $DomNode;
 	};
 	
 	Signature.prototype.exportImage = function() {
-		var $DomNode = this.$();
-		
-		return $DomNode.jSignature("getData", "image");
+		return this.$DomNode.jSignature("getData", "image");
 	};
 	
 	Signature.prototype.exportSvg = function() {
-		var $DomNode = this.$();
-		
-		return $DomNode.jSignature("getData", "svg");
+		return this.$DomNode.jSignature("getData", "svg");
 	};
 
 	Signature.prototype.reset = function() {
-		var $DomNode = this.$();
-		
-		return $DomNode.jSignature("reset");
+		return this.$DomNode.jSignature("reset");
 	};
 	
 	Signature.prototype.onResize = function() {
-		//this._C3Chart.resize();
+       this.$DomNode.jSignature("reset");
 	};
-
-	/**
-	 * This overrides the default setter of the playAudioc property.
-	 *
-	 * @param {boolean} bPlayAudio
-	 * @public
-	 */
-	Signature.prototype.setPlay = function(bPlay) {
-		if (bPlay === this.getPlay()) {
-			return this;
-		}
-		this.setProperty("play", bPlay, true);
-	};
-
+	
 	Signature.prototype.exit = function() {
 		//ResizeHandler.deregister(this.resizeID);
-		//this._C3Chart.destroy();
 	};
 	
 	Signature.prototype.animate = function() {

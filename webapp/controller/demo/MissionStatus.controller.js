@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("de.uniorg.martian.controller.Overview", {
+	return BaseController.extend("de.uniorg.martian.controller.demo.MissionStatus", {
 
 		onInit: function() {
 			// Control state model

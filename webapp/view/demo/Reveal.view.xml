@@ -1,0 +1,11 @@
+<mvc:View controllerName="de.uniorg.martian.controller.demo.Reveal"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:l="sap.ui.layout"
+    xmlns:mcv="de.uniorg.martian.control.viewer"
+    xmlns="sap.m">
+    <!--<Page id="revealPage" title="Reveal" showHeader="false" enableScrolling="false">-->
+        <mcv:Reveal id="reveal" width="100%" height="100%" slideSource="assets/reveal/index.html"
+            viewDistance="2" transition="zoom" backgroundTransition="zoom" />
+    <!--</Page>-->
+</mvc:View>

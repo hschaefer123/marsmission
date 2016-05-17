@@ -20,7 +20,7 @@
 				}
 			},
 			"jsonService": {
-				"uri": "localService/mockdata/Crew.json",
+				"uri": "localService/mockdata.json",
 				"type": "JSON"
 			}
 		},
@@ -53,7 +53,7 @@
 	"sap.ui5": {
 		"_version": "1.1.0",
 		"rootView": {
-			"viewName": "de.uniorg.martian.view.App",
+			"viewName": "de.uniorg.martian.view.Viewport",
 			"type": "XML"
 		},
 		"handleValidation": true,
@@ -109,40 +109,49 @@
 			"routes": [
 				{
 					"pattern": "",
-					"name": "welcome",
-					"target": "welcome"
+					"name": "overviewpage",
+					"target": "overviewpage"
 				},
 				{
-					"pattern": "overview",
-					"name": "overview",
-					"target": "overview"
-				},
-				{
-					"pattern": "sidecontent",
+					"pattern": "SideContent",
 					"name": "sidecontent",
 					"target": "sidecontent"
 				},
 				{
-					"pattern": "signature",
+					"pattern": "MissionStatus",
+					"name": "missionstatus",
+					"target": "missionstatus"
+				},
+				{
+					"pattern": "Signature",
 					"name": "signature",
 					"target": "signature"
+				},
+				{
+					"pattern": "Reveal",
+					"name": "reveal",
+					"target": "reveal"
 				}
 			],
 			"targets": {
-				"welcome": {
-					"viewName": "Welcome",
+				"overviewpage": {
+					"viewName": "OverviewPage",
 					"viewLevel": 0
-				},
-				"overview": {
-					"viewName": "Overview",
-					"viewLevel": 1
 				},
 				"sidecontent": {
 					"viewName": "SideContent",
 					"viewLevel": 1
 				},
+				"missionstatus": {
+					"viewName": "demo.MissionStatus",
+					"viewLevel": 1
+				},
 				"signature": {
-					"viewName": "Signature",
+					"viewName": "demo.Signature",
+					"viewLevel": 1
+				},
+				"reveal": {
+					"viewName": "demo.Reveal",
 					"viewLevel": 1
 				}
 			}

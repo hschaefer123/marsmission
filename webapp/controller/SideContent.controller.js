@@ -21,12 +21,12 @@ sap.ui.define([
 
 			if (sModelName === "sap.ui.model.json.JSONModel") {
 				// workaround for OData MockServer audio bug
-				oModel.setProperty("/0/Fraction", this.getRandomNumber(3000, 7000));
-				oModel.setProperty("/1/Fraction", this.getRandomNumber(3000, 7000));
-				oModel.setProperty("/2/Fraction", this.getRandomNumber(3000, 7000));
-				oModel.setProperty("/3/Fraction", 0);
-				oModel.setProperty("/4/Fraction", this.getRandomNumber(3000, 7000));
-				oModel.setProperty("/5/Fraction", this.getRandomNumber(3000, 7000));
+				oModel.setProperty("/Crew/0/Fraction", this.getRandomNumber(3000, 7000));
+				oModel.setProperty("/Crew/1/Fraction", this.getRandomNumber(3000, 7000));
+				oModel.setProperty("/Crew/2/Fraction", this.getRandomNumber(3000, 7000));
+				oModel.setProperty("/Crew/3/Fraction", 0);
+				oModel.setProperty("/Crew/4/Fraction", this.getRandomNumber(3000, 7000));
+				oModel.setProperty("/Crew/5/Fraction", this.getRandomNumber(3000, 7000));
 			} else {
 				oModel.setProperty("/Crew('JOHANNSEN')/Fraction", this.getRandomNumber(3000, 7000));
 				oModel.setProperty("/Crew('LEWIS')/Fraction", this.getRandomNumber(3000, 7000));

@@ -8,6 +8,10 @@ sap.ui.define([
     var AudioWaveform = Control.extend("de.uniorg.martian.control.AudioWaveform", {
         metadata: {
             properties: {
+                audioSrc: { 
+                    type: "sap.ui.core.URI", 
+                    defaultValue: null 
+                },
 				/** Use your own previously initialized AudioContext or leave blank.
 				 */
 				"audioContext": {
@@ -204,7 +208,11 @@ sap.ui.define([
             };	   
             
             this._ws = WaveSurfer.create(mOptions);
-            this._ws.load("media/houston.mp3");
+            
+            if (this.getAudioSrc()) {
+                this._ws.load(this.getAudioSrc());
+                //this._ws.load("media/houston.mp3");
+            }
             
             // resize handler
             this.resizeID = ResizeHandler.register(jQuery.sap.domById(this._sContainerId), this.onResize.bind(this));    

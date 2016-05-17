@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("de.uniorg.martian.controller.Signature", {
+	return BaseController.extend("de.uniorg.martian.controller.demo.Signature", {
 
 		onInit: function() {
 			var sBlankImageUri = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";

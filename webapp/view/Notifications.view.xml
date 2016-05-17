@@ -1,0 +1,29 @@
+<mvc:View controllerName="de.uniorg.martian.controller.Notifications"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <List backgroundDesign="Transparent" 
+        items="{
+            path: '/Notifications',
+            sorter : {
+                path : 'Id',
+                descending: true 
+            }
+        }">
+        <NotificationListItem
+            title="{Title}"
+            description="{Description}"
+            showCloseButton="{ShowCloseButton}"
+            datetime="{Datetime}"
+            unread="{Unread}"
+            priority="{Priority}"
+            authorName="{AuthorName}"
+            authorPicture="{AuthorPicture}"
+            authorPictureDensityAware="false"
+            showButtons="{= ${Type} !== 'INFO' }">
+            <buttons>
+                <Button id="notificationsAcceptBtn" text="Yes" type="Accept" visible="{= ${Type} === 'CONFIRMATION' }"/>
+                <Button id="notificationsRejectBtn" text="No" type="Reject" visible="{= ${Type} === 'CONFIRMATION' }"/>
+            </buttons>  
+        </NotificationListItem>
+    </List>
+</mvc:View>

@@ -33,12 +33,16 @@ function main() {
         });
         
         // create our application
+        var bUseMockServer = false; // currently mockserver does not support web audio requests! 
         sap.ui.require([
             "de/uniorg/martian/localService/mockserver",
             "sap/ui/core/ComponentContainer"
         ], function (server, ComponentContainer) {
             // set up test service for local testing
-            //server.init();
+            if (bUseMockServer) {
+                // currently mockserver does not support web audio requests! 
+                server.init();
+            }
             // initialize the UI component
             new ComponentContainer("app", {
                 height : "100%",

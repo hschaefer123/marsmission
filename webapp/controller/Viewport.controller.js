@@ -6,8 +6,8 @@ sap.ui.define([
 ], function(BaseController, JSONModel, jQuery, storage) {
 	"use strict";
 
-	return BaseController.extend("de.uniorg.martian.controller.App", {
-
+	return BaseController.extend("de.uniorg.martian.controller.Viewport", {
+	    
 		onInit: function() {
 			// Control state model
 			var oViewModel = new JSONModel({

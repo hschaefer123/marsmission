@@ -1,0 +1,29 @@
+<core:FragmentDefinition 
+	xmlns:core="sap.ui.core"
+    xmlns:mmc="de.uniorg.martian.control"
+    xmlns="sap.m">
+    <List
+        id="list"
+        class="crew"
+        backgroundDesign="Solid"
+        items="{/Crew}">
+        <CustomListItem>
+            <HBox class="sapUiSmallMarginBeginEnd sapUiTinyMarginTopBottom" alignItems="Center">
+                <Image class="uoUiSvgFillColor" width="3rem" height="3rem" src="{AvatarSrc}" densityAware="false" tooltip="image of {Name}" />
+                <Title class="sapUiTinyMarginBegin" text="{Id}" tooltip="{Name}" titleStyle="H6">
+                    <layoutData>
+                        <FlexItemData growFactor="1" />
+                    </layoutData>
+                </Title>
+                <VBox width="3.6rem" height="3.6rem" justifyContent="Center" alignItems="Center">
+                    <mmc:RadialMicroChart total="{Total}" fraction="{Fraction}" valueColor="{= ${Fraction} > 0 ? '#e7921e' : '#f00'}" />
+                </VBox>
+                <VBox width="3.6rem">
+                    <ObjectNumber number="{BP}" unit="BP" textAlign="End" />
+                    <ObjectNumber number="{PR}" unit="PR" textAlign="End" />
+                    <ObjectNumber number="{TP}" unit="TP" textAlign="End" />
+                </VBox>
+            </HBox>
+        </CustomListItem>                    
+    </List>
+</core:FragmentDefinition>

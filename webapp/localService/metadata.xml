@@ -15,8 +15,25 @@
 				<Property Name="PR" Nullable="false" Type="Edm.Decimal" />
 				<Property Name="TP" Nullable="false" Type="Edm.Decimal" />
 			</EntityType>
+			<EntityType Name="Notification">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="Id" Nullable="false" Type="Edm.String" />
+				<Property Name="CreatedAt" Nullable="false" Type="Edm.DateTime" />
+				<Property Name="Type" Nullable="false" Type="Edm.String" />
+				<Property Name="Title" Nullable="false" Type="Edm.String" />
+				<Property Name="Description" Type="Edm.String" />
+				<Property Name="ShowCloseButton" Nullable="false" Type="Edm.Boolean" />
+				<Property Name="Datetime" Nullable="false" Type="Edm.String" />
+				<Property Name="Unread" Nullable="false" Type="Edm.Boolean" />
+				<Property Name="Priority" Nullable="false" Type="Edm.String" />
+				<Property Name="AuthorName" Nullable="false" Type="Edm.String" />
+				<Property Name="AuthorPicture" Nullable="false" Type="Edm.String" />
+			</EntityType>
 			<EntityContainer Name="default" m:IsDefaultEntityContainer="true">
 				<EntitySet Name="Crew" EntityType="MARS_SRV.CrewMember" />
+				<EntitySet Name="Notifications" EntityType="MARS_SRV.Notification" />
 			</EntityContainer>
 		</Schema>
 	</edmx:DataServices>

@@ -6,7 +6,7 @@
 	"Fraction": 4.232,
 	"BP": 32.6,
 	"PR": 11.8,
-	"TP": 34.0,
+	"TP": 34,
 	"__metadata": {
 		"uri": "Crew('JOHANNSEN')",
 		"type": "MARS_SRV.CrewMember"
@@ -32,7 +32,7 @@
 	"Fraction": 6.478,
 	"BP": 31.4,
 	"PR": 12.4,
-	"TP": 34.0,
+	"TP": 34,
 	"__metadata": {
 		"uri": "Crew('VOGEL')",
 		"type": "MARS_SRV.CrewMember"
@@ -45,7 +45,7 @@
 	"Fraction": 3.264,
 	"BP": 30.2,
 	"PR": 13.5,
-	"TP": 35.0,
+	"TP": 35,
 	"__metadata": {
 		"uri": "Crew('WATNEY')",
 		"type": "MARS_SRV.CrewMember"
@@ -55,8 +55,8 @@
 	"Name": "DR. Christopher Beck",
 	"AvatarSrc": "mimes/crew/beck.png",
 	"Total": 10,
-	"Fraction":4.774,
-	"BP": 32.0,
+	"Fraction": 4.774,
+	"BP": 32,
 	"PR": 14.2,
 	"TP": 35.6,
 	"__metadata": {
