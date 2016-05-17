@@ -1,7 +1,8 @@
-/* 
-https://www.google.com/fonts/#
-@import url(https://fonts.googleapis.com/css?family=Electrolize); 
-*/
+/* ****************
+ * font
+ * https://www.google.com/fonts/#
+ * @import url(https://fonts.googleapis.com/css?family=Electrolize); 
+ *****************/
 @font-face {
   font-family: 'HUD';
   font-style: normal;
@@ -14,39 +15,39 @@ https://www.google.com/fonts/#
     font-family: 'HUD', sans-serif ! important;
 }
 
-/* global */
+/* ********************
+ * sap.ui
+ * brandColor: #e7921e
+ *********************/
 .sapUiBody {
     color: #ffffff;
-    xfont-family: Arial,Helvetica,sans-serif;
 }
 
-/* SVG */
-.uoUiSvgSpaceIcon svg g { 
-    stroke: #e7921e; 
-    /*fill: #e7921e;*/
-}
-
-/* SCROLLBAR */
+/* ****************
+ * scrollbar
+ *****************/
 .sap-desktop ::-webkit-scrollbar {
     width: 10px;  /* for vertical scrollbars */
     height: 10px; /* for horizontal scrollbars */
 }
 .sap-desktop ::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.1);
     background: black;
 }
 .sap-desktop ::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.2);
-    background: #a2b9cc;
+    background: #e7921e;
 }
 
+/* ****************
+ * sap.m.Page
+ *****************/
+ 
 /* disabled branding bar */
 .sapMPageHeader::before {
     border-top: 0;
-}
-
-.bold {
-    font-weight: bold;
 }
 
 /* translucent global header backgrounds */
@@ -55,29 +56,6 @@ https://www.google.com/fonts/#
     background: none;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.1);
-}
-
-/* fix remove transparent padding from headbar */ 
-.appHeadBar.sapMTB-Transparent-CTX.sapMTB,
-.footerBar.sapMTB-Transparent-CTX.sapMTB {
-    padding-left: 0;
-}
-
-.sapUiLocalBusyIndicator {
-    background-color: rgba(0,0,0,0.5);
-}
-
-.sapMLIB,
-.sapMTB {
-    border-bottom: 0;
-}
-
-.sapMObjectNumber {
-    color: #ffffff;
-}
-
-.gray {
-    color: #777777;
 }
 
 /* app header light border effect */
@@ -90,58 +68,191 @@ https://www.google.com/fonts/#
     border-top: 0;
 }
 
-/* audiovis */
-.hud-title {
-
-}
-.audiovis {
-    position: absolute;
-    top: 0.2rem;
-    right: 0;
-    /*
-    left: 50%;
-    margin-left: -6rem !important;
-    margin-right: auto !important;
-    */
+/* fix remove transparent padding from headbar */ 
+.appHeadBar.sapMTB-Transparent-CTX.sapMTB,
+.footerBar.sapMTB-Transparent-CTX.sapMTB {
+    padding-left: 0;
 }
 
-/* avatar round corner */
-.hud-avatar,
-.crew .sapMImg {
-    border-radius: 50%;
-}
-
-.hud-title.sapMTitle {
-    background: -webkit-linear-gradient(white, #e7921e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-variant: small-caps;
-}
-
-/* TITLE */
-.sapMTB-Transparent-CTX .sapMTitle,
-.sapMTitle {
-    color: #e7921e;
-    text-shadow: none;
-    xtext-transform: uppercase;
-}
-
-/* PANEL */
+/* ****************
+ * sap.m.Panel
+ *****************/
 .sapMPanel,
-.sapMList {
+.xsapMList {
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.4);
     border-radius: 0.5rem;
 }
-.sapMPanel {
-    xborder: 1px solid #cccccc;
-}
 .sapMPanel .sapMIBar {
+    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
     border-bottom: 0;
 }
 .sapMPanel .sapMTitleTB span {
     text-transform: uppercase;
+}
+
+/* ****************
+ * sap.m.List
+ *****************/
+ /* use backgroundDesign="Solid" to have a joined background over all list items */
+.sapMList.sapMListBGSolid {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 0.5rem;
+}
+.sapMListBGSolid .sapMLIB {
+    background: transparent;    
+}
+
+/* use backgroundDesign="Transparent" to have a background on each list item with transparent space in the gaps */
+.sapMListBGTransparent .sapMLIB {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.4);
+}
+
+.sapMLIB,
+.sapMTB {
+    border-bottom: 0;
+}
+
+.sapMObjectNumber {
+    color: #ffffff;
+}
+
+.sapUiLocalBusyIndicator {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.sapMNLI-High {
+    background-color: rgb(229,41,41);
+    background-color: rgba(229,41,41,0.6);
+}
+
+.sapMNLI-Low {
+    background-color: rgb(0,138,59);
+    background-color: rgba(0,138,59,0.6);
+}
+
+.sapMNLI-Medium {
+    background-color: rgb(240,171,0);
+    background-color: rgba(240,171,0,0.6);
+}
+
+.sapMNLI-None {
+    background-color: rgb(0,124,192);
+    background-color: rgba(0,124,192,0.6);
+}
+
+/* ****************
+ * sap.m.ToolBar
+ *****************/
+.sapMTB-Transparent-CTX .sapMTitle,
+.sapMTitle {
+    color: #e7921e;
+    text-shadow: none;
+}
+
+/* ******************
+ * sap.m.IconTabBar
+ *******************/
+.sapMITBHead.sapMITBTextOnly {
+    margin-top: 0;
+}
+.sapMITBContainerContent {
+    border-top: 0;
+    border-bottom: 0;
+}
+.sapMITBSelected>.sapMITBContentArrow {
+    border-bottom-color: #e7921e;
+}
+.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText {
+    color: #e7921e;
+}
+.sapMNLI-Description .sapMNLI-Text {
+    color: #999999;
+}
+.sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
+    color: #999;
+}
+
+/* *********************
+ * sap.uxap.ObjectPage
+ **********************/
+.sapUxAPObjectPageLayout {
+    background: transparent !important;
+}
+
+.sapUxAPAnchorBar.sapMTB {
+    background: transparent !important;
+}
+
+.sapMSplitContainerHideMode>.sapMSplitContainerDetail .sapUiResponsiveMargin, 
+.xsapUiResponsiveMargin {
+    margin: 0.5rem !important;
+}
+
+/* ****************
+ * sap.m.Button
+ *****************/
+.sapMToggleBtnPressed, 
+.sapMIBar-CTX .sapMToggleBtnPressed, 
+div.sapMBtnInner.sapMBtnEmphasized,
+.sapMBtnInner.sapMToggleBtnPressed,
+.sapMTB-Transparent-CTX .sapMBtnInner.sapMToggleBtnPressed {
+    background-color: rgb(231, 146, 30);
+    background-color: rgba(231, 146, 30, 0.5);
+    border-color: rgb(231, 146, 30);
+    border-color: rgba(231, 146, 30, 0.8);
+}
+
+.sapMBtnInner {
+    text-shadow: none;
+}
+
+.sapMBtnTransparent {
+    color: #e7921e;
+}
+
+/* toggle button */
+.sapMToggleBtnUnstyled .sapMBtnInner {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+/* ****************
+ * sap.m.Slider
+ *****************/
+.sapMSliderProgress {
+    background: #e7921e;
+}
+
+/* ****************
+ * helper
+ *****************/
+.bold {
+    font-weight: bold;
+}
+.gray {
+    color: #777777;
+}
+
+/* ****************
+ * SVG
+ *****************/
+.uoUiSvgSpaceIcon svg g { 
+    stroke: #e7921e; 
+    /*fill: #e7921e;*/
+}
+
+/* ****************
+ * AudioVis control
+ *****************/
+.audiovis {
+    position: absolute;
+    top: 0.2rem;
+    right: 0;
 }
 
 .sapUiBlockCellTitle {
@@ -153,25 +264,9 @@ https://www.google.com/fonts/#
     font-size: 14px;
 }
 
-/* button */
-.sapMToggleBtnPressed, 
-.sapMIBar-CTX .sapMToggleBtnPressed, 
-div.sapMBtnInner.sapMBtnEmphasized,
-.sapMBtnInner.sapMToggleBtnPressed,
-.sapMTB-Transparent-CTX .sapMBtnInner.sapMToggleBtnPressed {
-    background-color: rgba(231, 146, 30, 0.5);
-    border-color: rgba(231, 146, 30, 0.8);
-}
-.sapMBtnInner {
-    text-shadow: none;
-}
-
-/* slider */
-.sapMSliderProgress {
-    background: #e7921e;
-}
-
-/* uo.svg.radialMicroChart */
+/* *************************
+ * uo.svg.radialMicroChart
+ **************************/
 .uoSvgUiRMCFont {
     fill: white;   
 }
@@ -187,25 +282,25 @@ div.sapMBtnInner.sapMBtnEmphasized,
     stroke-width: 0.25rem;
 }
 
-/* toggle button */
-.sapMToggleBtnUnstyled .sapMBtnInner {
-    background-color: transparent !important;
-    border-color: transparent !important;
+/* *************************
+ * App specific settings
+ **************************/
+ 
+ /* Mission Cockpit title */
+ .hud-title.sapMTitle {
+    background: -webkit-linear-gradient(white, #e7921e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-variant: small-caps;
+}
+
+/* avatar round corner */
+.hud-avatar,
+.crew .sapMImg {
+    border-radius: 50%;
 }
 
 /* ARES LOGO */
 .ares-iii {
     opacity: 0.8;
-    /*
-    -webkit-animation:spin 16s linear infinite;
-    -moz-animation:spin 16s linear infinite;
-    animation:spin 16s linear infinite;
-    */
 }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
-
-@-moz-keyframes spiny { 50% { -moz-transform: rotateY(90deg); } }
-@-webkit-keyframes spiny { 50% { -webkit-transform: rotateY(90deg); } }
-@keyframes spiny { 50% { -webkit-transform: rotateY(90deg); transform:rotateY(90deg); } }
