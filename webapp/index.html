@@ -6,21 +6,32 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="apple-mobile-web-app-title" content="Mission Cockpit">
 		<meta name="apple-mobile-web-app-capable" content="yes">  
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
         <meta name="format-detection" content="telephone=no">
         <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"/>
-		
+        
 		<title>Mission Cockpit</title>
 		
 		<link rel="stylesheet" type="text/css" href="css/loader.css">
 		
         <script>
             // CacheBuster Timestamp
-            window["openui5-timestamp"] = "20160517091501";
+            window["openui5-timestamp"] = "20160517114000";
+            
+            var standalone = window.navigator.standalone,
+                userAgent = window.navigator.userAgent.toLowerCase(),
+                safari = /safari/.test( userAgent ),
+                ios = /iphone|ipod|ipad/.test( userAgent ),
+                bAddToHomescreen = (ios && !standalone && safari);
             
             function loadScript(sUrl) {
                 sUrl += '?ts=' + window["openui5-timestamp"];
-                document.write('<script src="'+sUrl+'"><\/script>');
+                document.write("<script src=\"" + sUrl + "\"><\/script>");
+            }
+            function loadStyle(sUrl) {
+                sUrl += '?ts=' + window["openui5-timestamp"];
+                document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + sUrl + "\">");
             }
             loadScript("util/CacheBuster.js");
             loadScript("preboot.js");

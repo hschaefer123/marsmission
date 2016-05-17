@@ -1,5 +1,11 @@
 /*eslint node: true */
 "use strict";
+            
+// The app is running in standalone mode.
+if (bAddToHomescreen) {
+    loadStyle("css/addtohomescreen.css");
+    loadScript("util/addtohomescreen.min.js");
+}
 
 /**
  * Main method to be executed once SAPUI5 has been initialized.
@@ -17,7 +23,17 @@ function main() {
             [ "/" ]
         );
     }
-	
+    
+    if (bAddToHomescreen) {
+        // http://cubiq.org/add-to-home-screen
+        addToHomescreen({
+            //debug: true,
+            //skipFirstVisit: true,
+            maxDisplayCount: 1
+        });
+        //addToHomescreen.removeSession();
+    }
+    
     // device APIs are available
     function onDeviceReady() {
         jQuery.sap.initMobile({});
