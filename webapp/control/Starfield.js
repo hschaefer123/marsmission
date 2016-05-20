@@ -291,7 +291,7 @@ sap.ui.define([
 			lastLoop = thisLoop;
 
 			ctx.font = "12px Arial";
-			ctx.fillStyle = "#fff";
+			ctx.fillStyle = "#ccc";
 			var sInfo = (1000 / frameTime).toFixed(1) + " fps (" + window.sap.ui.version + ")";
 			ctx.fillText(sInfo, 8, height - 8);
 

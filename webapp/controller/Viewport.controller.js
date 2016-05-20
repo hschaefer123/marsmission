@@ -1,18 +1,17 @@
 sap.ui.define([
 	"de/uniorg/martian/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"jquery.sap.global",
-	"jquery.sap.storage"
-], function(BaseController, JSONModel, jQuery, storage) {
+	"jquery.sap.global"
+], function(BaseController, JSONModel, jQuery) {
 	"use strict";
 
 	return BaseController.extend("de.uniorg.martian.controller.Viewport", {
-	    
+        
+        _meAreaVisible: false,
+        
 		onInit: function() {
 			// Control state model
 			var oViewModel = new JSONModel({
-				animateStars: true,
-				playAudio: false,
 				showSideContent: false,
 				orientation: {
 					alpha: 0,
@@ -21,25 +20,67 @@ sap.ui.define([
 				}
 			});
 			this.setModel(oViewModel, "shell");
-
-			// local web storage
-			this.oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-
-			var bAnimateStars = this.oStorage.get("animateStars");
-			this._setAnimateStars((bAnimateStars === null) ? true : bAnimateStars);
-
-			// force button to enable audio for iOS to hacj touchBeforeAudio bug (and to not annoy user ;-)
-			this._setAudioState(false);
-
+			
 			// handle orientation change
 			//window.addEventListener("deviceorientation", this.onOrientationChange.bind(this), false);
-
-			//var oEventBus = sap.ui.getCore().getEventBus();
-			var oEventBus = this.getEventBus();
-			oEventBus.subscribe("Shell", "navTo", this.onNavToEvent, this);
 		},
 
 		onAfterRendering: function() {
+		    this._removeSplashScreen();
+		    this._attachStarfieldDirectionFromRouting();
+		    
+            // attach shell content click event to close user menu 
+            jQuery.sap.byId(this.getView().getId() + "--" + "meArea")
+                .bind("click", this.onContentClick.bind(this));
+		},
+		
+        exit : function() {
+           jQuery.sap.byId(this.getView().getId() + "--" + "meArea")
+                .unbind("click", this.onContentClick.bind(this));
+        },		
+        
+        onContentClick : function(evt) {
+            //var oDomTarget = evt.target;
+            var xPos = evt.clientX,
+                yPos = evt.clientY;
+            if (this._meAreaVisible && xPos > 260) { // && oTarget !== openbtn (var oTarget = evt.target;)
+                //if (evt.stopPropagation) { evt.stopPropagation(); }
+                //if (evt.cancelBubble !== null) { evt.cancelBubble = true; }
+                this._toggleMenu(); 
+            }
+        },        
+		
+		/*
+		onOrientationChange : function(event) {
+		    var oModel = this.getModel("app");
+		    oModel.setProperty("/orientation/alpha", event.alpha);
+		    oModel.setProperty("/orientation/beta", event.beta);
+		    oModel.setProperty("/orientation/gamma", event.gamma);
+		},
+		*/
+		
+		onMenu: function(oEvent) {
+		    this._toggleMenu();
+		},
+		
+		_toggleMenu: function() {
+		    //var oMeArea = this.getView().byId("meArea");
+		    
+		    this._meAreaVisible = !this._meAreaVisible;
+		    
+		    this.getView().toggleStyleClass("meAreaVisible", this._meAreaVisible);
+		    //oMeArea.toggleStyleClass("open", this._meAreaVisible);
+		    this.getModel("app").setProperty("/meAreaVisible", this._meAreaVisible);
+		},
+		
+		onToggleSideContent: function(oEvent) {
+			var oTB = oEvent.getSource(),
+				bPressed = oTB.getPressed();
+
+			this.getModel("shell").setProperty("/showSideContent", bPressed);
+		},
+		
+		_removeSplashScreen: function() {
 			// hide SplashScreen and cleanup...
 			jQuery("#root").css("visibility", "visible");
 			jQuery("#uoUiSplashScreen").animate({
@@ -48,64 +89,21 @@ sap.ui.define([
 				// onAnimationComplete...
 				jQuery("#uoUiSplashScreen").remove();
 			});
-
+		},
+		
+		_attachStarfieldDirectionFromRouting: function() {
 			// attach routing direction/slide handling to control starfield animation 
 			var oNavContainer = this.getComponent().getRootContainer(),
 				oStarfield = this.getView().byId("starfield");
-
+				
 			oNavContainer.attachNavigate({}, function(oEvent) {
 				var bIsRight = oEvent.getParameter("isTo");
 				oStarfield.setDirection((bIsRight) ? "RIGHT" : "LEFT");
 			}, this);
+			
 			oNavContainer.attachAfterNavigate({}, function() {
 				oStarfield.setDirection("CENTER");
 			}, this);
-		},
-
-		/*
-		onOrientationChange : function(event) {
-		    var oModel = this.getModel("shell");
-		    oModel.setProperty("/orientation/alpha", event.alpha);
-		    oModel.setProperty("/orientation/beta", event.beta);
-		    oModel.setProperty("/orientation/gamma", event.gamma);
-		},
-		*/
-
-		onPlayAudioToggle: function(oEvent) {
-			this._setAudioState(!oEvent.getSource().getPressed());
-		},
-
-		onAnimateStarsToggle: function(oEvent) {
-			this._setAnimateStars(oEvent.getSource().getPressed());
-		},
-
-		onToggleSideContent: function(oEvent) {
-			var oTB = oEvent.getSource(),
-				bPressed = oTB.getPressed();
-
-			this.getModel("shell").setProperty("/showSideContent", bPressed);
-		},
-
-		_setAudioState: function(bPlayAudio) {
-			var oTB = this.getView().byId("muteBtn");
-
-			oTB.setIcon((bPlayAudio) ? "mimes/svg/speaker.svg" : "mimes/svg/mute.svg");
-			oTB.setPressed(!bPlayAudio);
-
-			this.getModel("shell").setProperty("/playAudio", bPlayAudio);
-			// remember audio mute state inside local web storage
-			this.oStorage.put("playAudio", bPlayAudio);
-		},
-
-		_setAnimateStars: function(bAnimateStars) {
-			var oTB = this.getView().byId("animateStarsBtn");
-
-			oTB.setIcon((bAnimateStars) ? "sap-icon://favorite" : "sap-icon://unfavorite");
-			oTB.setPressed(bAnimateStars);
-
-			this.getModel("shell").setProperty("/animateStars", bAnimateStars);
-			// remember audio mute state inside local web storage
-			this.oStorage.put("animateStars", bAnimateStars);
 		}
 
 	});

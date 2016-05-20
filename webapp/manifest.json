@@ -85,10 +85,21 @@
 			},
 			"": {
 				"dataSource": "jsonService"
+			},
+			"app": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"animateStars": true,
+					"playAudio": false,
+					"meAreaVisible": false
+				}
 			}
 		},
 		"resources": {
 			"css": [
+				{
+					"uri": "css/theme.css"
+				},
 				{
 					"uri": "css/style.css"
 				},

@@ -1,13 +1,29 @@
 <html style="position: fixed;">
     <head>
-        <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/mars.css">
+        <script>
+            window["openui5-timestamp"] = "20160520090000";
+            
+            //var isStandalone = (("standalone" in window.navigator) && window.navigator.standalone);
+            var isStandalone = window.navigator.standalone;
+            
+            function loadScript(sUrl) {
+                sUrl += '?ts=' + window["openui5-timestamp"];
+                document.write("<script src=\"" + sUrl + "\"><\/script>");
+            }
+            function loadStyle(sUrl) {
+                sUrl += '?ts=' + window["openui5-timestamp"];
+                document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + sUrl + "\">");
+            }
+            loadStyle("css/reveal.css");
+            loadStyle("css/theme/mars.css");
+            loadScript("js/reveal.js");
+        </script>
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <section data-background="images/mars.png" data-background-size="626px">
+                    <section data-background="images/mars.png" data-background-size="contain">
                         <h4>Inspired by</h4>
                         <h2>The Developer</h2>
                         <h3>Bring Digital Home</h3>
@@ -15,8 +31,13 @@
                     </section>
                     <section>
                         <h3>Developers - Bringing Digital Home</h3>
-                        <iframe class="stretch" src="https://www.youtube.com/embed/3MCPXT8gS44" scrolling="no" frameborder="0" allowfullscreen></iframe>
-                        <!--<a href="#" class="navigate-down">TECHED (English)</a>-->
+                        <script>
+                            if (isStandalone) {
+                                document.write('<a href="https://www.youtube.com/embed/3MCPXT8gS44" target="_blank">DSAG Technologietage 2016 (German)</a><br/>');
+                            } else {
+                                document.write('<iframe class="stretch" src="https://www.youtube.com/embed/3MCPXT8gS44" scrolling="no" frameborder="0" allowfullscreen></iframe>');
+                            }
+                        </script>
                         <a href="http://events.sap.com/teched/en/session/13493" target="_blank">TECHED 2015 SAP Executive Keynote (English)</a>
                     </section>
                     <!--
@@ -38,8 +59,8 @@
                 -->
                 <section>
                     <h2>The time has come...</h2>
-					<p class="fragment">... to do something different on</p>
-					<a class="fragment" href="http://openui5.blogspot.com/" target="_blank">
+					<p class="xfragment">... to do something different on</p>
+					<a class="xfragment" href="http://openui5.blogspot.com/" target="_blank">
 					    <img src="images/OpenUI5Developer.png" /><br/>
 					</a>
                 </section>
@@ -92,6 +113,16 @@
                         <blockquote>&ldquo;Implemented load on demand in preboot.&rdquo;</blockquote>
                     </section>
                     <section>
+                        <h3>Off-Canvas Navigation</h3>
+                        <p>Some inspiration for transition effects for off-canvas navigations by Mary Lou.</p>
+                        <ul>
+                            <li><a href="http://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations/" target="_new" >Transitions for Off-Canvas Navigations</a></li>
+                            <li><a href="http://tympanus.net/codrops/2014/09/16/off-canvas-menu-effects/" target="_new" >Off-Canvas Menu Effects</a></li>
+                            <li><a href="http://tympanus.net/codrops/2013/12/18/perspective-page-view-navigation/" target="_new" >Perspective Page View Navigation</a></li>
+                        </ul>
+                        <blockquote>&ldquo;Implemented modified space version. If you need design inspiration, visit <a href="http://tympanus.net/codrops/" target="_new">Codrops</a>!&rdquo;</blockquote>
+                    </section>
+                    <section>
                         <h3>Audio Player</h3>
                         <p>Based on wavesurfer.js, a customizable audio waveform visualization, built on top of Web Audio API and HTML5 Canvas.</p>
                         <a href="http://wavesurfer-js.org/" target="_new" >wavesurfer.js</a>
@@ -101,7 +132,7 @@
                         <h3>Audio Spectrum Visualizer</h3>
                         <p>Webaudiox is a bunch of helpers for WebAudio API by Jerome Etienne.</p>
                         <a href="https://github.com/jeromeetienne/webaudiox" target="_new" >webaudiox.js</a>
-                        <blockquote>&ldquo;Using the lib to load and play mp3 audio file and connect to lineout to analyze and draw spectrum bar.&rdquo;</blockquote>
+                        <blockquote>&ldquo;Using the lib to load and play mp3 audio file and connect to lineout to analyze and draw spectrum bar by my own.&rdquo;</blockquote>
                     </section>
                     <section>
                         <h3>daXX - Stardust Memories (Amiga Remix)</h3>
@@ -160,7 +191,6 @@
                 </section>
             </div>
         </div>
-        <script src="js/reveal.js"></script>
         <script>
             Reveal.initialize();
         </script>

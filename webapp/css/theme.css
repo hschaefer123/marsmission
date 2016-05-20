@@ -1,0 +1,299 @@
+/* ****************
+ * font
+ * https://www.google.com/fonts/#
+ * @import url(https://fonts.googleapis.com/css?family=Electrolize); 
+ *****************/
+@font-face {
+  font-family: 'HUD';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Electrolize'), local('Electrolize-Regular'), url(https://fonts.gstatic.com/s/electrolize/v5/DDy9sgU2U7S4xAwH5thnJ44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+*:not(.sapUiIcon):not(.sapMTCInner) {
+    font-family: 'HUD', sans-serif ! important;
+}
+
+/* ********************
+ * sap.ui
+ * brandColor: #e7921e 
+ *   rgb(231,146,30)
+ *********************/
+.sapUiBody {
+    color: #ffffff;
+}
+
+.sapUiLocalBusyIndicator {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* ****************
+ * scrollbar
+ *****************/
+.sap-desktop ::-webkit-scrollbar {
+    width: 10px;  /* for vertical scrollbars */
+    height: 10px; /* for horizontal scrollbars */
+}
+
+.sap-desktop ::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.1);
+    background: black;
+}
+
+.sap-desktop ::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.2);
+    background: #e7921e;
+}
+
+/* ****************
+ * sap.m.Bar
+ *****************/
+.sapMBar {
+    box-shadow: none;
+}
+
+/* ****************
+ * sap.m.Dialog
+ *****************/
+.sapMDialog {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.6);
+    border: 0;
+}
+
+.sapMMessageDialog.sapMPopup-CTX>header.sapMDialogTitle {
+    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.sapMIBar-CTX.sapMFooter-CTX {
+    background-color: rgb(54,62,67);
+    background-color: rgba(54,62,67,0.96);
+}
+
+/* ****************
+ * sap.m.Page
+ *****************/
+ 
+/* disabled branding bar */
+.sapMPageHeader::before {
+    border-top: 0;
+}
+
+/* translucent global header backgrounds */
+.sapMPageHeader.sapMTB,
+.sapMIBar.sapMHeader-CTX,
+.sap-desktop .sapMIBar.sapMHeader-CTX {
+    background: none;
+    background-color: transparent;
+}
+
+/* app header light border effect */
+.sapMPageHeader.sapMTB.appHeadBar {
+    -moz-border-image: -moz-linear-gradient(to right, transparent, #a9b0c2, transparent);
+    -webkit-border-image: -webkit-linear-gradient(to right, transparent, #a9b0c2, transparent);
+    border-image: linear-gradient(to right, transparent, #a9b0c2, transparent);
+    border-image-slice: 1;
+    border-bottom: 1px solid transparent;
+    border-top: 0;
+}
+
+/* ****************
+ * sap.m.Panel
+ *****************/
+.sapMPanel {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 0.5rem;
+}
+
+.sapMPanel .sapMIBar {
+    background-color: transparent;
+    border-bottom: 0;
+}
+
+.sapMPanel .sapMTitleTB span {
+    text-transform: uppercase;
+}
+
+/* ****************
+ * sap.m.List
+ *****************/
+ 
+ /* use backgroundDesign="Solid" to have a joined background over all list items */
+.sapMList.sapMListBGSolid {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 0.5rem;
+}
+
+.sapMListBGSolid .sapMLIB {
+    background: transparent;    
+}
+
+/* use backgroundDesign="Transparent" to have a background on each list item with transparent space in the gaps */
+.sapMListBGTransparent .sapMLIB {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.4);
+}
+
+.sapMLIB,
+.sapMTB {
+    border-bottom: 0;
+}
+
+.sapMObjectNumber {
+    color: #ffffff;
+}
+
+.sapMLIBCounter {
+    color: #e7921e;
+}
+
+.sapMNLI-High {
+    background-color: rgb(229,41,41);
+    background-color: rgba(229,41,41,0.6);
+}
+
+.sapMNLI-Low {
+    background-color: rgb(0,138,59);
+    background-color: rgba(0,138,59,0.6);
+}
+
+.sapMNLI-Medium {
+    background-color: rgb(240,171,0);
+    background-color: rgba(240,171,0,0.6);
+}
+
+.sapMNLI-None {
+    background-color: rgb(0,124,192);
+    background-color: rgba(0,124,192,0.6);
+}
+
+/* list group header */
+.sapMList .sapMLIB.sapMGHLI {
+    color: #e7921e;
+    border-bottom: 1px solid rgba(231,146,30,0.33);
+    border-bottom: 0;
+}
+
+/* ****************
+ * sap.m.ToolBar
+ *****************/
+.sapMTB-Transparent-CTX .sapMTitle,
+.sapMTitle {
+    color: #e7921e;
+    text-shadow: none;
+}
+
+/* ******************
+ * sap.m.IconTabBar
+ *******************/
+.sapMITBHead.sapMITBTextOnly {
+    margin-top: 0;
+}
+
+.sapMITBContainerContent {
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.sapMITBSelected>.sapMITBContentArrow {
+    border-bottom-color: #e7921e;
+}
+
+.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText {
+    color: #e7921e;
+}
+
+.sapMNLI-Description .sapMNLI-Text {
+    color: #999999;
+}
+
+.sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
+    color: #999;
+}
+
+/* *********************
+ * sap.uxap.ObjectPage
+ **********************/
+.sapUxAPObjectPageLayout {
+    background: transparent !important;
+}
+
+.sapUxAPAnchorBar.sapMTB {
+    background: transparent !important;
+}
+
+.sapMSplitContainerHideMode>.sapMSplitContainerDetail .sapUiResponsiveMargin {
+    margin: 0.5rem !important;
+}
+
+/* ****************
+ * sap.m.Button
+ *****************/
+.sapMToggleBtnPressed, 
+.sapMIBar-CTX .sapMToggleBtnPressed, 
+div.sapMBtnInner.sapMBtnEmphasized,
+.sapMBtnInner.sapMToggleBtnPressed,
+.sapMTB-Transparent-CTX .sapMBtnInner.sapMToggleBtnPressed {
+    background-color: rgb(231, 146, 30);
+    background-color: rgba(231, 146, 30, 0.5);
+    border-color: rgb(231, 146, 30);
+    border-color: rgba(231, 146, 30, 0.8);
+}
+
+.sapMBtnInner {
+    text-shadow: none;
+}
+
+.sapMBtnTransparent {
+    color: #e7921e;
+}
+
+/* active button */
+:not(.sapMBtnDisabled)>.sapMBtnTransparent.sapMBtnActive, 
+:not(.sapMBtnDisabled):hover>.sapMBtnTransparent.sapMBtnActive {
+    background-color: #e7921e;
+    border-color: #e7921e;
+}
+
+/* ********************
+ * sap.m.ToggleButton
+ *********************/
+.sapMToggleBtnUnstyled .sapMBtnInner {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+/* ****************
+ * sap.m.Slider
+ *****************/
+.sapMSliderProgress {
+    background: #e7921e;
+}
+
+/* ****************
+ * sap.m.Switch
+ *****************/
+.sapMSwtOn:not(.sapMSwtAcceptReject) {
+    background: #e7921e;
+    border-color: #e7921e;
+}
+
+/* ****************
+ * sap.m.Popover
+ *****************/
+ .sapMActionSheetPopover.sapMPopover {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
+}
+
+.sapMActionSheetPopover.sapMPopover>.sapMPopoverArrUp:after {
+    border-bottom-color: rgb(0,0,0);
+    border-bottom-color: rgba(0,0,0,0.96);
+}

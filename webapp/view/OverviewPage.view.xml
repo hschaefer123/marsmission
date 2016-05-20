@@ -4,7 +4,7 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mc="de.uniorg.martian.control"
     xmlns="sap.m">
-    <Page id="page" title="Welcome" showHeader="false" enableScrolling="false">
+    <Page id="page" title="Welcome" showHeader="false">
         <content>
             <FlexBox width="100%" height="100%" justifyContent="Center" alignItems="Center">
                 <VBox justifyContent="Center" alignItems="Center">

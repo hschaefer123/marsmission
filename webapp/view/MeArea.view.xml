@@ -3,74 +3,65 @@
     xmlns:core="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="meAreaPage" class="uoUiShellPaneContent" enableScrolling="false">
-        <customHeader>
-            <Toolbar id="meAreaToolbar" design="Transparent">
-                <Button
-                    id="meAreaAvatarChangeBtn"
-                    visible="{uis>/Config/eco/user/useAvatar}"
-                    press="onOpenFragmentPopup" 
-                    data:fragmentName=".AvatarActionSheet"
-                    icon="sap-icon://edit"
-                    tooltip="{i18n>Change}"/>
-            </Toolbar>
-        </customHeader>
+    <Page id="meAreaPage" class="uoUiMeAreaPage" showHeader="false" title="">
+        <!--
+        <headerContent>
+            <Button
+                id="meAreaAvatarChangeBtn"
+                type="Transparent"
+                icon="sap-icon://edit"
+                tooltip="{i18n>Change}"
+                press="onOpenFragmentPopup" 
+                app:fragmentName=".AvatarActionSheet" />
+        </headerContent>
+        -->
         <content>
+            <Button
+                id="meAreaAvatarChangeBtn"
+                class="sapUiTinyMarginBegin"
+                type="Transparent"
+                icon="sap-icon://edit"
+                tooltip="{i18n>Change}"
+                press="onOpenFragmentPopup" 
+                app:fragmentName=".AvatarActionSheet" />
             <VBox alignItems="Center">
                 <Image
-                    class="uoUiAvatar sapUiSmallMarginBottom svg-inject"
+                    class="uoUiRoundedCorners"
                     width="8rem" 
                     height="8rem" 
-                    src="{
-                        parts: [ 'uis>/Config/ume/avatarSrc', 'uis>/Config/ume/gender', 'app>/uoUiTheme'], 
-                        Xformatter: '.formatter.avatarIcon',
-                        formatter: '.formatter.avatarIconSvg'
-                    }" 
+                    src="mimes/mark_watney.jpg"
                     densityAware="false"
-                />
-                <Text 
-                    class="uoUiShellUserHeaderText sapUiTinyMarginBottom"
-                    text="{uis>/Config/ume/fullName}" />
-                <Label 
-                    class="uoUiShellUserSubHeaderText"
-                    text="{uis>/Config/ume/email}" />
+                    tooltip="Avatar Icon" />
+                <Title text="Mark Whatney" class="sapUiTinyMarginTop" />
+                <Label text="m.watney@ares.com" />
             </VBox>
-            <List  
-                class="sapUiMediumMarginTop sapUiContentPadding"
-                backgroundDesign="Transparent"
-                showSeparators="Inner" >
+            <List class="sapUiTinyMarginTop sapUiContentPadding uoUiMTLI" backgroundDesign="Transparent">
                 <items>
-                    <!--<GroupHeaderListItem title="{i18n>Notifications}" class="sapUiSmallMarginTop" />-->
                     <StandardListItem
-                        visible="{uis>/Config/eco/user/useNotifications}"
+                        type="Active" 
+                        icon="sap-icon://home"
+                        title="Home" 
+                        press="onNavTo" 
+                        app:route="overviewpage" />
+                    <StandardListItem 
                         type="Active" 
                         icon="sap-icon://notification-2"
                         title="{i18n>Notifications}"
-                        counter="{uis>/Config/ume/notifications}" />
-                    <StandardListItem 
-                        visible="{uis>/Config/eco/user/useFavorites}"
-                        type="Active" 
-                        icon="sap-icon://favorite"
-                        title="{i18n>Favorites}"
-                        counter="1" />
-                    <StandardListItem 
-                        type="Active" 
-                        visible="{= ${uis>/Config/ume/privileges/app.themeswitcher} === true }"
-                        press="onOpenFragmentPopup" 
-                        data:fragmentName=".AccountSettingsDialog"
-                        icon="sap-icon://settings"
-                        title="{i18n>AccountSettings}" />
+                        counter="4" />
+                    <GroupHeaderListItem title="{i18n>Switches}" class="sapUiSmallMarginTop" />
+                    <InputListItem label="Starfield">
+                        <Switch id="animateStarsSwitch" state="{app>/animateStars}" change="onAnimateStarsChange" />
+                    </InputListItem>
+                    <InputListItem label="Audio">
+                        <Switch id="playAudioSwitch" state="{app>/playAudio}" change="onPlayAudioChange" />
+                    </InputListItem>
                 </items>
             </List>        
         </content>
         <footer>
-            <Toolbar design="Transparent" height="4.7rem">
+            <Toolbar id="meAreaFooter" design="Transparent">
                 <ToolbarSpacer />
-                <Button 
-                    press="onLogoff"
-                    class="uoUiCircleIconBtn"
-                    icon="sap-icon://log" 
-                    text="{i18n>Logoff}" />
+                <Button id="meAreaLogoffBtn" icon="sap-icon://log"  text="{i18n>Logoff}" press="onLogoff"/>
                 <ToolbarSpacer />
             </Toolbar>
         </footer>

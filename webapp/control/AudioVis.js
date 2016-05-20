@@ -157,7 +157,7 @@ sap.ui.define([
         var barWidth = barStep * 0.8;
         
         //ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        this.ctx.fillStyle = "rgba(231,146,30,0.2)";
+        this.ctx.fillStyle = "rgba(231,146,30,0.1)";
         this.ctx.lineCap = "round";
         
         for (var i = 0; i < iNumBars - iOffsetEnd; i++){

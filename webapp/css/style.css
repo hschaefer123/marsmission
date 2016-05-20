@@ -1,241 +1,22 @@
 /* ****************
- * font
- * https://www.google.com/fonts/#
- * @import url(https://fonts.googleapis.com/css?family=Electrolize); 
- *****************/
-@font-face {
-  font-family: 'HUD';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Electrolize'), local('Electrolize-Regular'), url(https://fonts.gstatic.com/s/electrolize/v5/DDy9sgU2U7S4xAwH5thnJ44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-*:not(.sapUiIcon):not(.sapMTCInner) {
-    font-family: 'HUD', sans-serif ! important;
-}
-
-/* ********************
- * sap.ui
- * brandColor: #e7921e
- *********************/
-.sapUiBody {
-    color: #ffffff;
-}
-
-/* ****************
- * scrollbar
- *****************/
-.sap-desktop ::-webkit-scrollbar {
-    width: 10px;  /* for vertical scrollbars */
-    height: 10px; /* for horizontal scrollbars */
-}
-.sap-desktop ::-webkit-scrollbar-track {
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.1);
-    background: black;
-}
-.sap-desktop ::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.2);
-    background: #e7921e;
-}
-
-/* ****************
- * sap.m.Page
- *****************/
- 
-/* disabled branding bar */
-.sapMPageHeader::before {
-    border-top: 0;
-}
-
-/* translucent global header backgrounds */
-.sapMPageHeader.sapMTB,
-.sapMIBar.sapMHeader-CTX {
-    background: none;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.1);
-}
-
-/* app header light border effect */
-.sapMPageHeader.sapMTB.appHeadBar {
-    -moz-border-image: -moz-linear-gradient(to right, transparent, #a9b0c2, transparent);
-    -webkit-border-image: -webkit-linear-gradient(to right, transparent, #a9b0c2, transparent);
-    border-image: linear-gradient(to right, transparent, #a9b0c2, transparent);
-    border-image-slice: 1;
-    border-bottom: 1px solid transparent;
-    border-top: 0;
-}
-
-/* fix remove transparent padding from headbar */ 
-.appHeadBar.sapMTB-Transparent-CTX.sapMTB,
-.footerBar.sapMTB-Transparent-CTX.sapMTB {
-    padding-left: 0;
-}
-
-/* ****************
- * sap.m.Panel
- *****************/
-.sapMPanel,
-.xsapMList {
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    border-radius: 0.5rem;
-}
-.sapMPanel .sapMIBar {
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    border-bottom: 0;
-}
-.sapMPanel .sapMTitleTB span {
-    text-transform: uppercase;
-}
-
-/* ****************
- * sap.m.List
- *****************/
- /* use backgroundDesign="Solid" to have a joined background over all list items */
-.sapMList.sapMListBGSolid {
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    border-radius: 0.5rem;
-}
-.sapMListBGSolid .sapMLIB {
-    background: transparent;    
-}
-
-/* use backgroundDesign="Transparent" to have a background on each list item with transparent space in the gaps */
-.sapMListBGTransparent .sapMLIB {
-    background: rgb(0,0,0);
-    background: rgba(0,0,0,0.4);
-}
-
-.sapMLIB,
-.sapMTB {
-    border-bottom: 0;
-}
-
-.sapMObjectNumber {
-    color: #ffffff;
-}
-
-.sapUiLocalBusyIndicator {
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-
-.sapMNLI-High {
-    background-color: rgb(229,41,41);
-    background-color: rgba(229,41,41,0.6);
-}
-
-.sapMNLI-Low {
-    background-color: rgb(0,138,59);
-    background-color: rgba(0,138,59,0.6);
-}
-
-.sapMNLI-Medium {
-    background-color: rgb(240,171,0);
-    background-color: rgba(240,171,0,0.6);
-}
-
-.sapMNLI-None {
-    background-color: rgb(0,124,192);
-    background-color: rgba(0,124,192,0.6);
-}
-
-/* ****************
- * sap.m.ToolBar
- *****************/
-.sapMTB-Transparent-CTX .sapMTitle,
-.sapMTitle {
-    color: #e7921e;
-    text-shadow: none;
-}
-
-/* ******************
- * sap.m.IconTabBar
- *******************/
-.sapMITBHead.sapMITBTextOnly {
-    margin-top: 0;
-}
-.sapMITBContainerContent {
-    border-top: 0;
-    border-bottom: 0;
-}
-.sapMITBSelected>.sapMITBContentArrow {
-    border-bottom-color: #e7921e;
-}
-.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText {
-    color: #e7921e;
-}
-.sapMNLI-Description .sapMNLI-Text {
-    color: #999999;
-}
-.sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
-    color: #999;
-}
-
-/* *********************
- * sap.uxap.ObjectPage
- **********************/
-.sapUxAPObjectPageLayout {
-    background: transparent !important;
-}
-
-.sapUxAPAnchorBar.sapMTB {
-    background: transparent !important;
-}
-
-.sapMSplitContainerHideMode>.sapMSplitContainerDetail .sapUiResponsiveMargin, 
-.xsapUiResponsiveMargin {
-    margin: 0.5rem !important;
-}
-
-/* ****************
- * sap.m.Button
- *****************/
-.sapMToggleBtnPressed, 
-.sapMIBar-CTX .sapMToggleBtnPressed, 
-div.sapMBtnInner.sapMBtnEmphasized,
-.sapMBtnInner.sapMToggleBtnPressed,
-.sapMTB-Transparent-CTX .sapMBtnInner.sapMToggleBtnPressed {
-    background-color: rgb(231, 146, 30);
-    background-color: rgba(231, 146, 30, 0.5);
-    border-color: rgb(231, 146, 30);
-    border-color: rgba(231, 146, 30, 0.8);
-}
-
-.sapMBtnInner {
-    text-shadow: none;
-}
-
-.sapMBtnTransparent {
-    color: #e7921e;
-}
-
-/* toggle button */
-.sapMToggleBtnUnstyled .sapMBtnInner {
-    background-color: transparent !important;
-    border-color: transparent !important;
-}
-
-/* ****************
- * sap.m.Slider
- *****************/
-.sapMSliderProgress {
-    background: #e7921e;
-}
-
-/* ****************
- * helper
+ * UI helper
  *****************/
 .bold {
     font-weight: bold;
 }
 .gray {
     color: #777777;
+}
+
+/* transaprent list item */
+.uoUiMTLI.sapMListBGTransparent .sapMLIB {
+    background: transparent;
+}
+
+/* fix transparent head bar padding */
+.appHeadBar.sapMTB-Transparent-CTX.sapMTB,
+.footerBar.sapMTB-Transparent-CTX.sapMTB {
+    padding-left: 0;
 }
 
 /* ****************
@@ -252,7 +33,8 @@ div.sapMBtnInner.sapMBtnEmphasized,
 .audiovis {
     position: absolute;
     top: 0.2rem;
-    right: 0;
+    left: calc(50% - 7rem);
+    xright: 3rem;
 }
 
 .sapUiBlockCellTitle {
@@ -270,12 +52,15 @@ div.sapMBtnInner.sapMBtnEmphasized,
 .uoSvgUiRMCFont {
     fill: white;   
 }
+
 .uoSvgUiRMCNeutralTextColor {
     fill: white;
 }
+
 .uoSvgUiRMCPathIncomplete {
     stroke: #e5e5e5; 
 }
+
 .uoSvgUiRMCHCBIncompleteBorder {
     fill: transparent;
     stroke: transparent;
@@ -287,11 +72,13 @@ div.sapMBtnInner.sapMBtnEmphasized,
  **************************/
  
  /* Mission Cockpit title */
+ .hud-title .sapMBtnContent,
  .hud-title.sapMTitle {
     background: -webkit-linear-gradient(white, #e7921e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-variant: small-caps;
+    font-size: 2rem;
 }
 
 /* avatar round corner */
@@ -303,4 +90,130 @@ div.sapMBtnInner.sapMBtnEmphasized,
 /* ARES LOGO */
 .ares-iii {
     opacity: 0.8;
+}
+
+.uoUiRoundedCorners,
+.uoUiRoundedCorners .sapMBtnIcon {
+    border-radius: 50%;
+}
+
+/* *************************
+ * MeArea
+ **************************/
+ .uoUiViewport {
+    position: relative;
+    
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    
+    /*
+    -webkit-perspective: 500px;
+	perspective: 500px;
+	-webkit-perspective-origin: 0% 50%;
+	perspective-origin: 0% 50%;
+	*/
+	
+	/*
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	*/
+}
+ 
+.uoUiMeArea {
+    visibility: hidden;
+	position: absolute;
+	top: 3rem;
+	xtop: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+	
+	xbackground: rgb(0,0,0);
+	xbackground: rgba(0,0,0,0.4);
+} 
+ 
+.uoUiMeAreaPage {
+    visibility: hidden;
+	position: absolute;
+	top: 1rem;
+	bottom: 2rem;
+	width: 260px;
+	height: auto;
+	z-index: 100;
+	background: rgb(0,0,0);
+	background: rgba(0,0,0,0.3);
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	
+	/*
+	-webkit-transform: translate3d(-100%, 0, -512px); /* rotateY(90deg);*/ /*
+	transform: translate3d(-100%, 0, -512px); /* rotateY(90deg);*/ /*
+	*/
+	-webkit-transform: translate3d(-100%, 0, 0); /* scale(0.6);*/
+	transform: translate3d(-100%, 0, 0); /* scale(0.6);*/
+}
+
+
+.xuoUiMeArea::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	xwidth: 100%;
+	xheight: 100%;
+	xbackground: rgba(0,0,0,0.2);
+	background: #a99;
+	content: '';
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.meAreaVisible .uoUiMeArea,
+.meAreaVisible .uoUiMeAreaPage {
+	visibility: visible;
+}
+
+.meAreaVisible .uoUiMeAreaPage {
+	-webkit-transform: translate3d(0, 0, 0); /* rotateY(0deg);*/
+	transform: translate3d(0, 0, 0); /* rotateY(0deg);*/
+}
+
+.sapUiDSC {
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+    
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.meAreaVisible .sapUiDSC {
+    -webkit-transform: translate3d(130px, 0, 0) scale(0.6);
+    transform: translate3d(130px, 0, 0) scale(0.6);
+}
+
+/* text overwrite */
+.uoUiMeArea .sapMIBar-CTX .sapMBtnInner,
+.uoUiMeArea .sapMLabel,
+.uoUiMeArea .sapUiIcon,
+.uoUiMeArea .sapMSLITitleOnly,
+.sapMILILabel {
+    color: #aaa;
+}
+
+.xuoUiMeArea.open::after {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
 }

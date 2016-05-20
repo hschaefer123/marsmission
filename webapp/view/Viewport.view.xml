@@ -1,47 +1,44 @@
-<mvc:View controllerName="de.uniorg.martian.controller.Viewport" displayBlock="true"
+<mvc:View controllerName="de.uniorg.martian.controller.Viewport" displayBlock="true" class="uoUiViewport"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mc="de.uniorg.martian.control"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
 	xmlns="sap.m">
-    <mc:Starfield id="starfield" animate="{shell>/animateStars}" width="100%" height="100%" positionAbsolute="true" 
-        backgroundImage="mimes/bg_mars_surface_comp.jpg" XcanvasBackgroundColor="rgba(0,0,0,0.1)" globalAlpha="0.5" />
-    <mvc:XMLView id="meArea" class="uoUiMeArea" viewName="de.uniorg.martian.view.MeArea" visible="false" />
-	<App class="app" backgroundOpacity="0" backgroundColor="transparent">
-		<Page id="hudPage" backgroundDesign="Transparent" enableScrolling="false">
+    <mc:Starfield id="starfield" animate="{app>/animateStars}" width="100%" height="100%" positionAbsolute="true" 
+        backgroundImage="mimes/bg_mars_surface_comp.jpg" canvasBackgroundColor="rgba(0,0,0,0.1)" globalAlpha="0.4" />
+    <mvc:XMLView id="meArea" class="uoUiMeArea" viewName="de.uniorg.martian.view.MeArea" />
+	<App class="app uoUiApp" backgroundOpacity="0" backgroundColor="transparent">
+		<Page id="appPage" class="appPage" backgroundDesign="Transparent" enableScrolling="false">
             <customHeader>
                 <Toolbar id="hudToolbar" class="appHeadBar" design="Transparent">
+                    <Button id="menuBtn" class="sapUiTinyMarginEnd uoUiRoundedCorners" tooltip="Menu Icon" press="onMenu"
+                        icon="{= ${app>/meAreaVisible} ? 'sap-icon://decline' : 'mimes/mark_watney.jpg'}" iconDensityAware="false"  />
+                    <!--
                     <Button id="avatarBtn" class="sapUiTinyMarginEnd hud-avatar" icon="mimes/ares_logo.png" iconDensityAware="false" 
                         tooltip="Ares Logo" press="onNavTo" app:route="overviewpage" />
-                    <Title class="hud-title" text="Mission Cockpit" titleStyle="H1" />
+                    -->
                     <ToolbarSpacer />
-                    <mc:AudioVis id="audiovis" class="audiovis" play="{shell>/playAudio}" width="12rem" height="2.8rem" src="assets/audio/daXX_stardust.mp3" />
+                    <mc:AudioVis id="audiovis" class="audiovis" play="{app>/playAudio}" width="14rem" height="2.8rem" src="assets/audio/daXX_stardust.mp3" />
+                    <Button id="viewportHomeBtn" text="Mission Cockpit" class="hud-title" type="Transparent" press="onNavTo" app:route="overviewpage" />
+                    <!--<Title class="hud-title" text="Mission Cockpit" titleStyle="H1" />-->
                     <ToolbarSpacer />
-                    <ToggleButton
-                        id="animateStarsBtn"
-                        class="sapMToggleBtnUnstyled"
-                        press="onAnimateStarsToggle"
-                        icon="sap-icon://favorite"
-                        type="Transparent"/>
-                    <ToggleButton
-                        id="muteBtn"
-                        class="sapMToggleBtnUnstyled"
-                        press="onPlayAudioToggle"
-                        icon="mimes/svg/speaker.svg"
-                        iconDensityAware="false" 
-                        type="Transparent"/>
                     <ToggleButton
                         visible="{= !${device>/system/phone} }"
                         press="onToggleSideContent"
                         pressed="false"
                         icon="sap-icon://group"
                         type="Transparent"/>
+                    <Button
+                        id="sideContentBtn"
+                        visible="{= ${device>/system/phone} }"
+                        icon="sap-icon://group"
+                        tooltip="Show Side Content"
+                        press="onSideContent"
+                        type="Transparent"/>
                 </Toolbar>
             </customHeader>
-            <l:DynamicSideContent 
-                id="shellDSC" 
-                showSideContent="{shell>/showSideContent}">
+            <l:DynamicSideContent id="shellDSC" showSideContent="{shell>/showSideContent}">
                 <l:mainContent id="shellMasterContent">
                     <NavContainer id="rootControl" />
                 </l:mainContent>

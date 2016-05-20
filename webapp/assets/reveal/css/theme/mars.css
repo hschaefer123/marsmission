@@ -22,7 +22,7 @@
 body {
   background: #000;
   background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.2); 
+  background-color: rgba(0,0,0,0);
 }
 
 .reveal {

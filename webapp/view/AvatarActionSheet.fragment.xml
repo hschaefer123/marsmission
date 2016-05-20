@@ -1,0 +1,10 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ActionSheet placement="Bottom">
+		<buttons>
+			<Button id="avatarAddBtn" text="{i18n>AvatarAdd}" icon="sap-icon://add-photo" />
+			<Button id="avatarRemoveBtn" text="{i18n>AvatarRemove}" icon="sap-icon://delete" />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>
