@@ -108,6 +108,15 @@ sap.ui.define([
             //return JSON.parse(JSON.stringify(oData));
         },
         
+        sendAnalytics: function(oData) {
+            if (ga) {
+                // set current page
+                ga("set", oData);
+                // send update to google
+                ga("send", "pageview");
+            }
+        },
+        
 		/**
 		 * Convenience method for accessing the router in every controller of the application.
 		 * @public
@@ -276,8 +285,52 @@ sap.ui.define([
             // return cached fragment
             return oCmp._mFragments[sCacheId];
             
-        } // eof getXmlFragment   		
-
+        }, // eof getXmlFragment   		
+        
+        applyTip : function(oTip) {
+			var aTips = (Array.isArray(oTip)) ? oTip : [ oTip ],
+				iLen = aTips.length,
+				mAction = null;
+				
+			for (var i = 0; i < iLen; i++) {
+				mAction = aTips[i];
+				if (mAction && mAction.id) {
+					var oView = (mAction.route) ? this.getView().byId("rootControl").getCurrentPage() : this.getView(),
+						oId = oView.byId(mAction.id);
+						
+					if (oId) {
+						if (!mAction.popoverPlacement) { mAction.popoverPlacement = "Bottom"; }
+						if (mAction.popoverContent) {
+							var mPopoverCfg = {
+								title: mAction.popoverTitle,
+								placement: mAction.popoverPlacement,
+								contentWidth: mAction.contentWidth,
+								horizontalScrolling: false,
+								verticalScrolling: false
+							};
+							if (typeof mAction.popoverContent === "object") {
+								mPopoverCfg.content = sap.ui.jsonview({
+								    viewContent : {
+								        Type: "sap.ui.core.mvc.JSONView",
+								        content: mAction.popoverContent
+								    }
+								});
+							} else {
+								mPopoverCfg.content = new sap.m.Text({ text: mAction.popoverContent });
+							}
+							var oPopover = new sap.m.Popover(mPopoverCfg);
+							if (!mAction.popoverTitle) { oPopover.setShowHeader(false); }
+							oPopover.addStyleClass("sapUiContentPadding");	
+							oPopover.openBy(oId);
+						}
+						if (mAction.focus === true && oId.focus) { oId.focus(); }
+						if (mAction.open === true && oId.open) { oId.open(); }
+						if (mAction.press === true && oId.firePress) { oId.firePress(); }
+					}
+				}
+			}          
+        }
+        
 	});
 
 });

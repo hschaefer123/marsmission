@@ -12,7 +12,7 @@
 		<Page id="appPage" class="appPage" backgroundDesign="Transparent" enableScrolling="false">
             <customHeader>
                 <Toolbar id="hudToolbar" class="appHeadBar" design="Transparent">
-                    <Button id="menuBtn" class="sapUiTinyMarginEnd uoUiRoundedCorners" tooltip="Menu Icon" press="onMenu"
+                    <Button id="meAreaBtn" class="sapUiTinyMarginEnd uoUiRoundedCorners" tooltip="Menu Icon" press="onMenu"
                         icon="{= ${app>/meAreaVisible} ? 'sap-icon://decline' : 'mimes/mark_watney.jpg'}" iconDensityAware="false"  />
                     <!--
                     <Button id="avatarBtn" class="sapUiTinyMarginEnd hud-avatar" icon="mimes/ares_logo.png" iconDensityAware="false" 
@@ -24,13 +24,14 @@
                     <!--<Title class="hud-title" text="Mission Cockpit" titleStyle="H1" />-->
                     <ToolbarSpacer />
                     <ToggleButton
+						id="sideContentToggleBtn"
                         visible="{= !${device>/system/phone} }"
                         press="onToggleSideContent"
                         pressed="false"
                         icon="sap-icon://group"
                         type="Transparent"/>
                     <Button
-                        id="sideContentBtn"
+                    	id="sideContentBtn"
                         visible="{= ${device>/system/phone} }"
                         icon="sap-icon://group"
                         tooltip="Show Side Content"

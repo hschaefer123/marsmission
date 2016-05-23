@@ -1,7 +1,7 @@
 <html style="position: fixed;">
     <head>
         <script>
-            window["openui5-timestamp"] = "20160520090000";
+            window["openui5-timestamp"] = "20160523090000";
             
             //var isStandalone = (("standalone" in window.navigator) && window.navigator.standalone);
             var isStandalone = window.navigator.standalone;
@@ -23,21 +23,25 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <section data-background="images/mars.png" data-background-size="contain">
-                        <h4>Inspired by</h4>
-                        <h2>The Developer</h2>
-                        <h3>Bring Digital Home</h3>
-                        <a href="#" class="navigate-down">Video</a>
+                    <section xdata-background="images/xmars_bg.png" xdata-background-size="contain">
+                        <div class="mars-rotate">
+                            <h4 class="uoUiTextSmallCaps">Inspired by</h4>
+                            <h2 class="uoUiTextUpperCase">The Developer</h2>
+                            <h4 class="uoUiTextUpperCase">Bring Digital Home</h4>
+                        </div>
                     </section>
                     <section>
                         <h3>Developers - Bringing Digital Home</h3>
+                        <iframe class="stretch" src="https://www.youtube-nocookie.com/embed/3MCPXT8gS44" scrolling="no" frameborder="0" allowfullscreen></iframe>
+                        <!--
                         <script>
-                            if (isStandalone) {
+                            if (isStandalone && 1 === 2) {
                                 document.write('<a href="https://www.youtube.com/embed/3MCPXT8gS44" target="_blank">DSAG Technologietage 2016 (German)</a><br/>');
                             } else {
-                                document.write('<iframe class="stretch" src="https://www.youtube.com/embed/3MCPXT8gS44" scrolling="no" frameborder="0" allowfullscreen></iframe>');
+                                document.write('<iframe class="stretch" src="https://www.youtube-nocookie.com/embed/3MCPXT8gS44" scrolling="no" frameborder="0" allowfullscreen></iframe>');
                             }
                         </script>
+                        -->
                         <a href="http://events.sap.com/teched/en/session/13493" target="_blank">TECHED 2015 SAP Executive Keynote (English)</a>
                     </section>
                     <!--
@@ -68,7 +72,9 @@
                     <section>
                         <h2>Credits</h2>
                         <p>Informations about included javascript libraries and components.</p>
-                        <a href="#" class="navigate-down">Navigate Down</a>
+                        <a href="#" class="navigate-down">
+                            <img src="images/down.svg" class="plain" width="8%" height="8%" />
+                        </a>
                     </section>
                     <section>
                         <h3>Reveal</h3>
@@ -186,8 +192,8 @@
                 </section>
                 -->
                 <section>
-                    <h1>Start Mission!</h1>
-                    <p>end of briefing...</p>
+                    <h2>End of briefing</h2>
+                    <a href="#/">Start Mission!</a>
                 </section>
             </div>
         </div>

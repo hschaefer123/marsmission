@@ -10,6 +10,11 @@ sap.ui.define([
 		    // attach navigation controller
 		    this.getRouter().getRoute("reveal").attachPatternMatched(this.onRoutePatternMatched, this);
 		},
+		
+		onAfterRendering: function() {
+			// show tips if enabled
+			//this._showTips();
+		},		
 
         onRoutePatternMatched: function() {
             var oReveal = this.getView().byId("reveal");
@@ -21,7 +26,18 @@ sap.ui.define([
 		onHome: function(oEvent) {
 			var oReveal = this.getView().byId("reveal");
 			oReveal.first();
-		}
+		},
+		
+		_showTips: function() {
+			if (!this.getModel("app").getProperty("/showTips")) {
+				return;
+			}
+			
+			this.applyTip({			    
+				"id": "reveal",
+				"popoverContent": "You can use keyboard arrows to navigate through reveal or use mouse!"
+			});
+		}		
 
 	});
 

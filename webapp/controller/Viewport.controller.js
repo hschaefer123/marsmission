@@ -1,8 +1,9 @@
 sap.ui.define([
 	"de/uniorg/martian/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"jquery.sap.global"
-], function(BaseController, JSONModel, jQuery) {
+	"jquery.sap.global",
+	"sap/ui/core/routing/HashChanger"
+], function(BaseController, JSONModel, jQuery, HashChanger) {
 	"use strict";
 
 	return BaseController.extend("de.uniorg.martian.controller.Viewport", {
@@ -21,6 +22,11 @@ sap.ui.define([
 			});
 			this.setModel(oViewModel, "shell");
 			
+			// attach display router Analytics
+			if (this.getComponent().getProperty("useAnalytics")) {
+                this.getRouter().attachRoutePatternMatched(this._onRoutePatternMatched, this);
+			}
+			
 			// handle orientation change
 			//window.addEventListener("deviceorientation", this.onOrientationChange.bind(this), false);
 		},
@@ -28,6 +34,9 @@ sap.ui.define([
 		onAfterRendering: function() {
 		    this._removeSplashScreen();
 		    this._attachStarfieldDirectionFromRouting();
+		    
+			// show tips if enabled
+			this._showTips();
 		    
             // attach shell content click event to close user menu 
             jQuery.sap.byId(this.getView().getId() + "--" + "meArea")
@@ -63,6 +72,46 @@ sap.ui.define([
 		    this._toggleMenu();
 		},
 		
+		onToggleSideContent: function(oEvent) {
+			var oTB = oEvent.getSource(),
+				bPressed = oTB.getPressed();
+
+			this.getModel("shell").setProperty("/showSideContent", bPressed);
+		},
+		
+		_showTips: function() {
+			if (!this.getModel("app").getProperty("/showTips")) {
+				return;
+			}
+			
+			this.applyTip([
+				{			    
+					"id": "meAreaBtn",
+					"contentWidth" : "30%",
+					"popoverContent": "Show/Hide the me area. You can also close the me area with a click anywhere in the content."
+				}, {
+					"id": "viewportHomeBtn",
+					"contentWidth" : "30%",
+					"popoverContent": "Navigate back to overview page by title click."
+				}, {
+					"id": "sideContentToggleBtn",
+					"contentWidth" : "30%",
+					"popoverContent": "Show/Hide side content information area."
+				}
+			]);
+		},
+		
+		_onRoutePatternMatched: function(oEvent) {
+            var oHashChanger = HashChanger.getInstance(),
+                sPageHash = oHashChanger.getHash(),
+                oData = {};
+                
+            if (!oData.page) {
+                oData.page = "/" + sPageHash;
+            }
+            this.sendAnalytics(oData);
+        }, 
+		
 		_toggleMenu: function() {
 		    //var oMeArea = this.getView().byId("meArea");
 		    
@@ -71,13 +120,6 @@ sap.ui.define([
 		    this.getView().toggleStyleClass("meAreaVisible", this._meAreaVisible);
 		    //oMeArea.toggleStyleClass("open", this._meAreaVisible);
 		    this.getModel("app").setProperty("/meAreaVisible", this._meAreaVisible);
-		},
-		
-		onToggleSideContent: function(oEvent) {
-			var oTB = oEvent.getSource(),
-				bPressed = oTB.getPressed();
-
-			this.getModel("shell").setProperty("/showSideContent", bPressed);
 		},
 		
 		_removeSplashScreen: function() {

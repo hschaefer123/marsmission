@@ -19,6 +19,25 @@
     padding-left: 0;
 }
 
+ /*****************************
+ * uoUi
+ *****************************/
+.uoUiTextSmallCaps {
+	font-variant: small-caps;
+}
+
+.uoUiTextUpperCase {
+	text-transform: uppercase;
+} 
+
+.uoUiTextLowerCase {
+	text-transform: lowercase;
+} 
+
+.uoUiTextCapitalize {
+	text-transform: capitalize;
+} 
+
 /* ****************
  * SVG
  *****************/
@@ -194,6 +213,11 @@
     
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+}
+
+.meAreaUsername {
+    font-size: 1.2rem;
+    font-variant: small-caps;
 }
 
 .meAreaVisible .sapUiDSC {

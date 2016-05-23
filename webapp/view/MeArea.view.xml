@@ -32,7 +32,7 @@
                     src="mimes/mark_watney.jpg"
                     densityAware="false"
                     tooltip="Avatar Icon" />
-                <Title text="Mark Whatney" class="sapUiTinyMarginTop" />
+                <Title text="Mark Watney" class="meAreaUsername sapUiTinyMarginTop" />
                 <Label text="m.watney@ares.com" />
             </VBox>
             <List class="sapUiTinyMarginTop sapUiContentPadding uoUiMTLI" backgroundDesign="Transparent">
@@ -52,6 +52,9 @@
                     <InputListItem label="Starfield">
                         <Switch id="animateStarsSwitch" state="{app>/animateStars}" change="onAnimateStarsChange" />
                     </InputListItem>
+					<InputListItem label="Tips">
+                        <Switch id="showTips" state="{app>/showTips}" change="onShowTipsChange" />
+                    </InputListItem>                    	
                     <InputListItem label="Audio">
                         <Switch id="playAudioSwitch" state="{app>/playAudio}" change="onPlayAudioChange" />
                     </InputListItem>

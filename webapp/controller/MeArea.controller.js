@@ -14,8 +14,11 @@ sap.ui.define([
 		},	    
 		
 		onAfterRendering: function() {
-			var bAnimateStars = this.oStorage.get("animateStars");
-			this._setAnimateStars((bAnimateStars === null) ? true : bAnimateStars);
+			var bAnimateStars = this.oStorage.get("animateStars"),
+				bShowTips = this.oStorage.get("showTips");
+				
+			this._setAnimateStars((bAnimateStars === null) ? true : Boolean(bAnimateStars));
+			this._setShowTips((bShowTips === null) ? true : Boolean(bShowTips));
 		},
 		
 		onLanguageChange: function(oEvent) {
@@ -47,6 +50,10 @@ sap.ui.define([
 			this._setAudioState(oEvent.getParameter("state"));
 		},		
 		
+		onShowTipsChange: function(oEvent) {
+			this._setShowTips(oEvent.getParameter("state"));
+		},		
+		
 		_setAnimateStars: function(bAnimateStars) {
             // store value in global app model
             this.getModel("app").setProperty("/animateStars", bAnimateStars);
@@ -56,6 +63,12 @@ sap.ui.define([
 		
 		_setAudioState: function(bPlayAudio) {
 		    this.getModel("app").setProperty("/playAudio", bPlayAudio);
+		},
+		
+		_setShowTips: function(bShowTips) {
+		    this.getModel("app").setProperty("/showTips", bShowTips);
+			// remember star animation state inside local web storage
+			this.oStorage.put("showTips", bShowTips);
 		}		
 		
 	});

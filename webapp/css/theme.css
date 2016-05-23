@@ -1,18 +1,11 @@
-/* ****************
+/* ***************************************************
  * font
- * https://www.google.com/fonts/#
- * @import url(https://fonts.googleapis.com/css?family=Electrolize); 
- *****************/
-@font-face {
-  font-family: 'HUD';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Electrolize'), local('Electrolize-Regular'), url(https://fonts.gstatic.com/s/electrolize/v5/DDy9sgU2U7S4xAwH5thnJ44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
+ * https://www.google.com/fonts/specimen/Electrolize
+ ****************************************************/
+@import url(https://fonts.googleapis.com/css?family=Electrolize);
 
 *:not(.sapUiIcon):not(.sapMTCInner) {
-    font-family: 'HUD', sans-serif ! important;
+    font-family: 'Electrolize', sans-serif ! important;
 }
 
 /* ********************
@@ -179,6 +172,20 @@
     color: #e7921e;
     border-bottom: 1px solid rgba(231,146,30,0.33);
     border-bottom: 0;
+}
+
+/* ****************
+ * sap.m.Popover
+ *****************/
+.sapMPopover {
+    background-color: rgba(255,255,255,0.8);
+    border: 1px #bfbfbf solid;
+    border-color: rgba(255,255,255,0.4);
+}
+
+.sapMPopoverWithoutBar>.sapMPopoverArrUp:after {
+    border-color: transparent;
+    border-bottom-color: transparent;
 }
 
 /* ****************
