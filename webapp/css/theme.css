@@ -200,6 +200,7 @@
 /* ******************
  * sap.m.IconTabBar
  *******************/
+ /*
 .sapMITBHead.sapMITBTextOnly {
     margin-top: 0;
 }
@@ -224,20 +225,46 @@
 .sapMITBTextOnly .sapMITBFilterDefault>.sapMITBText {
     color: #999;
 }
+*/
 
 /* *********************
  * sap.uxap.ObjectPage
  **********************/
 .sapUxAPObjectPageLayout {
-    background: transparent !important;
+    background: transparent;
+}
+.sapUxAPObjectPageNavigation {
+    background: transparent;
 }
 
-.sapUxAPAnchorBar.sapMTB {
-    background: transparent !important;
-}
-
+/*
 .sapMSplitContainerHideMode>.sapMSplitContainerDetail .sapUiResponsiveMargin {
-    margin: 0.5rem !important;
+    margin: 0.5rem;
+}
+*/
+.sapUiResponsiveMargin.sapUxAPBlockContainer {
+	margin: 0 !important;
+}
+
+/* disable anchor border */
+.sapUxAPAnchorBar.sapMTB {
+    background: transparent;
+    box-shadow: none;
+}
+
+.sapUxAPAnchorBar .sapUxAPAnchorBarButton.sapUxAPAnchorBarButtonSelected .sapMBtnContent, 
+.sapUxAPAnchorBar .sapUxAPAnchorBarButton.sapUxAPAnchorBarButtonSelected .sapMBtnIcon {
+	color: #e7921e;
+}
+
+.sapUxAPAnchorBarButton.sapUxAPAnchorBarButtonSelected .sapMBtnContent {
+    border-bottom-color: rgb(231,146,30);
+}
+
+.sapUxAPAnchorBar .sapUxAPAnchorBarButton .sapMBtnInner.sapMBtnTransparent.sapMBtnHoverable:hover .sapMBtnContent, 
+.sapUxAPAnchorBar .sapUxAPAnchorBarButton.sapMBtn:hover>.sapMBtnHoverable .sapMBtnContent, 
+.sapUxAPAnchorBar .sapUxAPAnchorBarButton.sapMBtn:hover>.sapMBtnHoverable .sapMBtnIcon {
+    color: white;
 }
 
 /* ****************

@@ -3,24 +3,7 @@
     xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
     xmlns:mmc="de.uniorg.martian.control"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
-    xmlns:uxap="sap.uxap">
-    <Page id="sideContentPanel" title="Side Content" showHeader="false" enableScrolling="false">
-        <IconTabBar
-            id="sideContentTabBar"
-            backgroundDesign="Transparent"
-            expanded="true">
-            <items>
-                <IconTabFilter id="crewTab" text="CREW STATUS">
-                    <core:Fragment fragmentName="de.uniorg.martian.view.Crew" type="XML" />
-                </IconTabFilter>
-                <IconTabFilter id="commTab" text="INTERCOM">
-                    <mvc:XMLView id="notificationsView" viewName="de.uniorg.martian.view.Notifications" />
-                </IconTabFilter>
-            </items>
-        </IconTabBar>
-    </Page>
-    <!--
+    xmlns="sap.uxap">
     <ObjectPageLayout id="sideContentPanel" useIconTabBar="true" enableLazyLoading="true">
 		<sections>
 			<ObjectPageSection title="CREW STATUS">
@@ -43,5 +26,4 @@
 			</ObjectPageSection>
 		</sections>
     </ObjectPageLayout>
-    -->
 </mvc:View>
